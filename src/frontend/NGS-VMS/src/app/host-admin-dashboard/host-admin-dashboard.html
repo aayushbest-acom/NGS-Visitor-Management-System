@@ -1,0 +1,24 @@
+<main class="host-dashboard">
+    <app-head-logo></app-head-logo>
+    <a class="host-dashboard-logout" href="#"><img alt="Logout Icon" src="/ic-logout.png" /></a>
+    <section class="host-dashboard-body">
+        <app-profile-card [profile]="hostProfile"></app-profile-card>
+        <div class="host-dashboard-cards">
+            <app-status-card iconUri="/ic-people.png" iconDesc="People Standard Icon"
+                message="Today's Visitors"></app-status-card>
+            <app-status-card backgroundColor="#10b981" iconUri="/ic-tick.png" iconDesc="Tick Icon"
+                message="Checked In"></app-status-card>
+            <app-status-card backgroundColor="#f59e0b" iconUri="/ic-clock.png" iconDesc="Clock Icon"
+                message="Pending Approval"></app-status-card>
+            <app-status-card iconUri="/ic-calendar.png" iconDesc="Calendar Icon"
+                message="Scheduled Today"></app-status-card>
+        </div>
+        <div class="host-dashboard-activity">
+            <h2>Recent Activity</h2>
+            @if(visitors().length==0){
+            <app-no-data-card iconSrc="/ic-arrow-up.png" [message]="message"></app-no-data-card>
+            }
+        </div>
+        <app-bottom-navigator></app-bottom-navigator>
+    </section>
+</main>

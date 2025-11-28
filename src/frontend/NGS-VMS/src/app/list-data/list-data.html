@@ -1,0 +1,15 @@
+<div class="list-data-card">
+    <h2 class="list-data-heading">{{listDataheading}}</h2>
+    @if(listCount){
+    <div class="list-no-data-card">
+        <img alt={{listIconNoDataAltText}} src="" />
+        <p>{{listNoDataMessage}}</p>
+    </div>
+    }@else {
+    <div class="list-data-table">
+        <table>
+
+        </table>
+    </div>
+    }
+</div>

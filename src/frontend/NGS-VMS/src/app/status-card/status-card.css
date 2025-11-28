@@ -1,0 +1,33 @@
+.status-card {
+    flex: 1 1 auto;
+    background-color: blue;
+    color: white;
+    display: flex;
+    flex-flow: column nowrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px blue solid;
+    border-radius: 20px;
+    box-sizing: border-box;
+    min-height: 150px;
+}
+
+.status-icon {
+    width: 10%;
+    height: 10%;
+    margin-top: 5%;
+    max-width: 100%;
+}
+
+.status-info {
+    font-weight: bolder;
+    font-size: 2em;
+    text-align: center;
+}
+
+.status-message {
+    font-size: 1.5em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}

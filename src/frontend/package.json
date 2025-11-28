@@ -1,0 +1,23 @@
+{
+  "name": "national-gallery-of-singapore-visitor-management-system",
+  "version": "1.0.0",
+  "description": "Visitor Management System Frontend Kiosk for National Gallery of Singapore",
+  "homepage": "https://github.com/aayushbest-acom/NGS-Visitor-Management-System#readme",
+  "bugs": {
+    "url": "https://github.com/aayushbest-acom/NGS-Visitor-Management-System/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aayushbest-acom/NGS-Visitor-Management-System.git"
+  },
+  "license": "UNLICENSED",
+  "author": "Aayush Shrivastava",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@angular/cli": "^20.3.10"
+  }
+}

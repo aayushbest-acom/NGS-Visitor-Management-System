@@ -1,0 +1,25 @@
+<main>
+    <app-head-logo></app-head-logo>
+    <section>
+        <div class="heading">
+            <img alt="Security operator icon" [src]="securityOperatorIconUri" />
+            <h1>{{title}}</h1>
+            <p>{{description}}</p>
+        </div>
+        <div class="status">
+            <app-status-card [count]="getVisitorsCount" [iconUri]="getVisitorIcon" [iconDesc]="getVisitorIconDesc"
+                [message]="getVisitorMessage"></app-status-card>
+            <app-status-card [count]="getRestrictedAreaVisitorsCount" [iconUri]="getRestrictedAreaIcon"
+                [iconDesc]="getRestrictedAreaIconDesc" [message]="getRestrictedAreaMessage"
+                [backgroundColor]="getRestrictedAreaBackgroundColor"></app-status-card>
+            <app-status-card [count]="getContractorsCount" [iconUri]="getContractorsIconUri"
+                [iconDesc]="getContractorsIconDesc" [message]="getContractorsMessage"></app-status-card>
+        </div>
+        <div class="list-data">
+            <app-list-data></app-list-data>
+            <app-list-data></app-list-data>
+            <app-list-data></app-list-data>
+        </div>
+        <app-bottom-navigator></app-bottom-navigator>
+    </section>
+</main>

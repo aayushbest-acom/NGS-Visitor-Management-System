@@ -1,0 +1,19 @@
+<nav>
+    <h2 id="nav-heading">Select Your Role</h2>
+    <ul>
+        @for (role of roles; track role.name) {
+        <li>
+            <a [href]="role.routeLink">
+                <picture>
+                    @for (iconSrc of role.iconSrcs; track iconSrc) {
+                    <source [src]="iconSrc" />
+                    }
+                    <img [alt]="role.name" [src]="role.iconSrcs[role.iconSrcs.length-1]" />
+                </picture>
+                <h2>{{role.name}}</h2>
+                <p>{{role.description}}</p>
+            </a>
+        </li>
+        }
+    </ul>
+</nav>
