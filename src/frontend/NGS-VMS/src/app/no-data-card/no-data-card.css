@@ -10,10 +10,11 @@
     width: 5%;
     height: 5%;
     max-width: 100%;
-    filter: sepia(10%) opacity(0.5);
+    filter: sepia(30%) opacity(0.2);
 }
 
 .no-data-card p {
     font-weight: bold;
     font-size: 2em;
+    filter: sepia(30%) opacity(0.2);
 }

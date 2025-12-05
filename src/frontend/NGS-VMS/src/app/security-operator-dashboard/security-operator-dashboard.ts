@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { HeadLogo } from '../head-logo/head-logo';
 import { StatusCard } from "../status-card/status-card";
-import { ListData } from "../list-data/list-data";
 import { BottomNavigator } from "../bottom-navigator/bottom-navigator";
-
+import { NoDataCard } from '../no-data-card/no-data-card';
+import { Visitor } from '../models/visitor';
 @Component({
   selector: 'app-security-operator-dashboard',
-  imports: [HeadLogo, StatusCard, ListData, BottomNavigator],
+  imports: [HeadLogo, StatusCard, BottomNavigator, NoDataCard],
   templateUrl: './security-operator-dashboard.html',
   styleUrl: './security-operator-dashboard.css',
 })
@@ -14,8 +14,9 @@ export class SecurityOperatorDashboard {
   readonly title: string = "Security Operations Center";
   readonly description: string = "Real-time visitor tracking and monitoring";
   readonly securityOperatorIconUri: string = "/ic-security-operator-48.png";
-  private visitorsList: Array<any>;
-  private restrictedAreaVisitorsList: Array<any>;
+  private visitors: WritableSignal<Array<Visitor>>;
+  private restrictedAreaVisitors: WritableSignal<Array<Visitor>>;
+
   private contractorsList: Array<any>;
   private visitorCardIconUri: string;
   private visitorMessage: string;
@@ -27,10 +28,13 @@ export class SecurityOperatorDashboard {
   private contractorsIconUri: string;
   private contractorsIconDesc: string;
   private contractorsMessage: string;
+  readonly noVisitorMessage: string = "No Active Visitors";
+  readonly noContractorMessage: string = "No Visitors in Restricted Area";
 
   constructor() {
-    this.visitorsList = new Array<any>();
-    this.restrictedAreaVisitorsList = new Array<any>();
+    this.visitors = signal(new Array<Visitor>());
+    this.restrictedAreaVisitors = signal(new Array<Visitor>());
+    this.restrictedAreaVisitors.set(this.visitors().filter((visitor) => visitor.currentLocation.isRestrictedArea));
     this.contractorsList = new Array<any>();
     this.visitorCardIconUri = '/ic-active-visitor.png';
     this.restrictedAreaBackgroundColor = '#f59e0b';
@@ -44,11 +48,11 @@ export class SecurityOperatorDashboard {
     this.contractorsMessage = 'Contractors';
   }
   get getVisitorsCount() {
-    return this.visitorsList.length.toString();
+    return this.visitors().length;
   }
 
   get getRestrictedAreaVisitorsCount() {
-    return this.restrictedAreaVisitorsList.length.toString();
+    return this.restrictedAreaVisitors.length.toString();
   }
 
   get getContractorsCount() {

@@ -1,0 +1,10 @@
+.logout-dashboard {
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 20px;
+
+    img {
+        width: 48px;
+        height: 48px;
+    }
+}

@@ -1,0 +1,36 @@
+<main>
+    <app-head-logo></app-head-logo>
+    <h1 class="page-header">Audit Logs</h1>
+    <section class="content">
+        <header>
+            <form>
+                <input name="searchOption" type="search" placeholder="Search by actor, action or target ..."
+                    (keyup)="searchLog($event)" [(ngModel)]="searchTerm" />
+            </form>
+            <div class="btn-group">
+                @for(logType of logTypes();track logType){
+                <button type="button" class="btn" [class.active]="currentFilter()===logType"
+                    (click)="filterAuditLogs(logType)">{{logType}}</button>
+                } @empty {
+                <p>Controls not rendered</p>
+                }
+            </div>
+        </header>
+        <div class="status">
+            <app-status-card backgroundColor="white" iconDesc="Page Icon" iconUri="/ic-page-blue.png"
+                message="Total Logs" infoColor="black" messageColor="black"></app-status-card>
+            <app-status-card backgroundColor="white" iconDesc="Calendar's Icon" iconUri="/ic-calendar-black.png"
+                message="Today" infoColor="black" messageColor="black"></app-status-card>
+        </div>
+        <div class="data">
+            @for(auditLog of auditLogs(); track auditLog.id){
+            <app-audit-log-card [auditLog]="auditLog"></app-audit-log-card>
+            } @empty {
+            <app-no-data-card iconSrc="/ic-arrow-up.png" message="No Audit Logs Found!"></app-no-data-card>
+            }
+        </div>
+        <app-bottom-navigator>
+
+        </app-bottom-navigator>
+    </section>
+</main>

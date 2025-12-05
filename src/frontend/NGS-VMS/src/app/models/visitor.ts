@@ -1,5 +1,6 @@
 import { Profile } from "./profile";
 import { VisitStatus } from "./visit-status";
+import { PremiseLocation } from "./premise-location";
 
 export interface Visitor {
     name: string;
@@ -15,4 +16,6 @@ export interface Visitor {
     checkedInAt: Date;
     checkedOutAt: Date;
     scheduledBy?: Profile;
+    currentLocation: PremiseLocation;
+    access: string;
 }

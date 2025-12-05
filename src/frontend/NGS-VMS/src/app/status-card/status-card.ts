@@ -12,5 +12,6 @@ export class StatusCard {
   count = input<string>();
   message = input<string>();
   backgroundColor = input<string>();
-
+  messageColor = input<string>();
+  infoColor = input<string>();
 }

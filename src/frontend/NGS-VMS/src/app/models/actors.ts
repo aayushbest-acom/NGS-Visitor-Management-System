@@ -1,0 +1,8 @@
+export enum Actors {
+    ADMINISTRATOR,
+    HOST,
+    RECEPTIONIST,
+    SECURITY_OPERATOR,
+    VISITOR,
+    CONTRACTOR
+}

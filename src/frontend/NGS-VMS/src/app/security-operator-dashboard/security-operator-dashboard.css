@@ -46,3 +46,7 @@ section {
     gap: 20px;
     margin: 20px;
 }
+
+.list-card h2 {
+    margin-left: 20px;
+}

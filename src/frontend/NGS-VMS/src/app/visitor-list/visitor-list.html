@@ -1,0 +1,29 @@
+<main>
+    <app-head-logo></app-head-logo>
+    <section class="content">
+        <header>
+            <form>
+                <input name="searchOption" type="search" placeholder="Search by name, NRIC or host ..."
+                    (keyup)="searchVisitor($event)" [(ngModel)]="searchTerm" />
+            </form>
+            <div class="btn-group">
+                @for(status of visitStatus();track status){
+                <button type="button" class="btn" [class.active]="currentFilter()===status"
+                    (click)="filterVisitorsByStatus(status)">{{status}}</button>
+                } @empty {
+                <p>Controls not rendered</p>
+                }
+            </div>
+        </header>
+        <div class="data">
+            @for(visitor of visitors();track visitor.nationalId){
+            <app-visitor-card [visitor]="visitor"></app-visitor-card>
+            } @empty {
+            <app-no-data-card iconSrc="/ic-eye.png" message="No Visitors Found!"></app-no-data-card>
+            }
+        </div>
+        <app-bottom-navigator>
+
+        </app-bottom-navigator>
+    </section>
+</main>

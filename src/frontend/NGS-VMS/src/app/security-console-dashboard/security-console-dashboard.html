@@ -1,0 +1,38 @@
+<main>
+    <app-head-logo></app-head-logo>
+    <app-logout></app-logout>
+    <section class="console-body">
+        <app-profile-card [profile]="securityOfficerProfile()"></app-profile-card>
+        <div class="status-cards">
+            <app-status-card iconUri="/ic-people.png" iconDesc="People Standard Icon" message="Today's Visitors"
+                [count]="visitors().length.toString()"></app-status-card>
+            <app-status-card backgroundColor="#10b981" iconUri="/ic-tick.png" iconDesc="Tick Icon" message="Checked In"
+                [count]="getCheckedInVisitors().length.toString()"></app-status-card>
+            <app-status-card backgroundColor="#f59e0b" iconUri="/ic-clock.png" iconDesc="Clock Icon"
+                message="Pending Approval"
+                [count]="getPendingForApprovalVisitors().length.toString()"></app-status-card>
+            <app-status-card iconUri="/ic-calendar.png" iconDesc="Calendar Icon" message="Scheduled Today"
+                [count]="getTodayScheduledVisitors().length.toString()"></app-status-card>
+        </div>
+        <div class="console-menu">
+            <h2>Security Overview</h2>
+            <button type="button" class="menu-item menu-security" (click)="goToSecurityOperatorDashboard()"><img
+                    alt="Security Shield Icon" src="/ic-shield.png" /><span>Security
+                    Console</span></button>
+            <button type="button" class="menu-item menu-visitor"><img alt="People Icon"
+                    src="/ic-people.png" /><span>Active
+                    Visitors</span>
+            </button>
+        </div>
+        <div class="activity-card">
+            <h2>Recent Activity</h2>
+            @if(visitors().length===0){
+            <app-no-data-card iconSrc="/ic-arrow-up.png" [message]="noVisitorMessage"></app-no-data-card>
+            } @else {
+            @for (visitor of visitors(); track visitor.email){
+            <app-visitor-activity-card [visitor]="visitor"></app-visitor-activity-card>
+            }
+            }
+        </div>
+    </section>
+</main>

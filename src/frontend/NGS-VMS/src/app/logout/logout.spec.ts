@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListData } from './list-data';
+import { Logout } from './logout';
 
-describe('ListData', () => {
-  let component: ListData;
-  let fixture: ComponentFixture<ListData>;
+describe('Logout', () => {
+  let component: Logout;
+  let fixture: ComponentFixture<Logout>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ListData]
+      imports: [Logout]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ListData);
+    fixture = TestBed.createComponent(Logout);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

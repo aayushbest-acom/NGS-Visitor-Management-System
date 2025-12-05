@@ -7,18 +7,27 @@
             <p>{{description}}</p>
         </div>
         <div class="status">
-            <app-status-card [count]="getVisitorsCount" [iconUri]="getVisitorIcon" [iconDesc]="getVisitorIconDesc"
-                [message]="getVisitorMessage"></app-status-card>
+            <app-status-card [count]="getVisitorsCount.toString()" [iconUri]="getVisitorIcon"
+                [iconDesc]="getVisitorIconDesc" [message]="getVisitorMessage"></app-status-card>
             <app-status-card [count]="getRestrictedAreaVisitorsCount" [iconUri]="getRestrictedAreaIcon"
                 [iconDesc]="getRestrictedAreaIconDesc" [message]="getRestrictedAreaMessage"
                 [backgroundColor]="getRestrictedAreaBackgroundColor"></app-status-card>
             <app-status-card [count]="getContractorsCount" [iconUri]="getContractorsIconUri"
                 [iconDesc]="getContractorsIconDesc" [message]="getContractorsMessage"></app-status-card>
         </div>
-        <div class="list-data">
-            <app-list-data></app-list-data>
-            <app-list-data></app-list-data>
-            <app-list-data></app-list-data>
+        <div>
+            <div class="list-card">
+                <h2>Active Visitors</h2>
+                @if(getVisitorsCount === 0){
+                <app-no-data-card iconSrc="/ic-arrow-up.png" [message]="noVisitorMessage"></app-no-data-card>
+                }
+            </div>
+            <div class="list-card">
+                <h2>Restricted Area Visitors</h2>
+                @if(getVisitorsCount === 0){
+                <app-no-data-card iconSrc="/ic-arrow-up.png" [message]="noContractorMessage"></app-no-data-card>
+                }
+            </div>
         </div>
         <app-bottom-navigator></app-bottom-navigator>
     </section>

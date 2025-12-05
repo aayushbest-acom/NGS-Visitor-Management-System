@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="status">
+        <p>{{visitor()?.status ?? "Pending"}}</p>
+    </div>
+    <section class="card">
+        <header>
+            <h4>{{visitor()?.name ?? "Full Name"}}</h4>
+        </header>
+        <section class="card-details">
+            <p>ID: {{visitor()?.nationalId ?? "ID****"}}</p>
+            <p>Host: {{visitor()?.hostStaff ?? "Mr. Host"}}</p>
+            <p>Purpose: {{visitor()?.purpose ?? "Visit"}}</p>
+            <p>Company: {{visitor()?.company ?? "Example Company"}}</p>
+            <p>Access: {{visitor()?.access ?? "Public"}}</p>
+        </section>
+        <footer>
+            @if((visitor()?.status ?? VISITOR_STATUS_PENDING) === VISITOR_STATUS_PENDING){
+            <button><img src="/ic-badge-white.png" alt="Badge Icon" />Issue Badge</button>
+            }
+        </footer>
+    </section>
+</div>

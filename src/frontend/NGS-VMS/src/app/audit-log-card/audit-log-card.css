@@ -1,0 +1,88 @@
+div:not(.card, .card-detail, .card-role-actions, .card-role-actor, .card-role-target) {
+    margin: 20px;
+}
+
+
+hr {
+    filter: opacity(0.2);
+    width: 100%;
+}
+
+.card {
+    /* The whole card for Audit Log */
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 1px solid red;
+
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-notify {
+    /* Notify Button in the top-left */
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+    margin: 10px;
+    padding: 10px 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card-time {
+    margin: 10px;
+    padding: 10px;
+}
+
+.card-detail {
+    clear: both;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: start;
+    margin-left: 20px;
+}
+
+.card-role-actor,
+.card-role-target {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+    align-items: baseline;
+    font-size: 1.5em;
+}
+
+.card-role-actor p,
+.card-role-target p {
+    margin-left: 5px;
+
+}
+
+.card-role-actor img,
+.card-role-target img {
+    width: 32px;
+    height: 32px;
+    max-width: 100%;
+}
+
+.card-role-actions {
+    display: flex;
+    clear: left;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+
+.card-role-actions h4 {
+    margin: 0;
+}
+
+.card-role-actions ul {
+    margin-top: 8px;
+}

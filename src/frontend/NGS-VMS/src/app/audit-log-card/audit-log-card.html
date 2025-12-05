@@ -1,0 +1,61 @@
+<div>
+    <div class="card">
+        <div class="card-header">
+            @let notifyBgColor='';
+            @let notifyTxtColor='#FFFFFF';
+            @switch (auditLog().kind.toString()) {
+            @case ('All') {
+            notifyBgColor='#E5E7EB';
+            notifyTxtColor='#111827';
+            }
+            @case ('Approve') {
+            notifyBgColor='#16A34A';
+            }
+            @case ('Register') {
+            notifyBgColor='#2563EB';
+            }
+            @case ('Check-In') {
+            notifyBgColor='#7C3AED';
+            }
+            @case ('Check-Out'){
+            notifyBgColor='#EA580C';
+            }
+            @case ('Badge Issue') {
+            notifyBgColor='#D97706';
+            }
+            @case ('Login') {
+            notifyBgColor='#0EA5E9';
+            }
+            @case ('Logout') {
+            notifyBgColor='#DC2626';
+            }
+            }
+            <span class="card-notify" [style.backgroundColor]="notifyBgColor"
+                [style.color]="notifyTxtColor">{{auditLog().kind.toString()}}</span>
+            <span class="card-time">{{auditLog().timestamp | date:'long' }}</span>
+        </div>
+        <section class="card-detail">
+            <div class="card-role-actor">
+                <img alt="Person Icon" src="/ic-person.png" />
+                <p>Actor:{{ auditLog().actor.designation }}</p>
+            </div>
+            <div class="card-role-target">
+                <img alt="Page Icon" src="/ic-page-black.png" />
+                <p>Target:{{auditLog().target.status}}</p>
+            </div>
+        </section>
+        <hr>
+        <section class="card-role-actions">
+            <header>
+                <h4>Details</h4>
+            </header>
+            <ul>
+                @for (action of auditLog().actions; track auditLog().id) {
+                <li>{{action}}</li>
+                }@empty {
+                <li style="list-style: none;">No Action Details Found!</li>
+                }
+            </ul>
+        </section>
+    </div>
+</div>

@@ -3,17 +3,6 @@
     border-radius: 20px;
 }
 
-.host-dashboard-logout {
-    float: right;
-    margin-right: 10px;
-    margin-bottom: 20px;
-}
-
-.host-dashboard-logout img {
-    width: 48px;
-    height: 48px;
-}
-
 .host-dashboard-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -31,5 +20,5 @@
 .host-dashboard-activity h2 {
     font-weight: bold;
     margin-left: 20px;
-    
+
 }
