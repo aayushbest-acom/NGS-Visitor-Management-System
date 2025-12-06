@@ -29,7 +29,7 @@
             @if(visitors().length===0){
             <app-no-data-card iconSrc="/ic-arrow-up.png" [message]="noVisitorMessage"></app-no-data-card>
             } @else {
-            @for (visitor of visitors(); track visitor.email){
+            @for (visitor of visitors(); track visitor.nationalId){
             <app-visitor-activity-card [visitor]="visitor"></app-visitor-activity-card>
             }
             }

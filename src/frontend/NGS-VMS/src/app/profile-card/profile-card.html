@@ -1,6 +1,6 @@
 <section class="profile-card">
     <p class="profile-card-greet">{{wish}}</p>
-    <h1 class="profile-card-name">{{name()}}</h1>
-    <p><span class="profile-card-role">{{designation()}}</span><b>⋅</b><span
-            class="profile-card-dept">{{department()}}</span></p>
+    <h1 class="profile-card-name">{{name()??"Full Name"}}</h1>
+    <p><span class="profile-card-role">{{designation() ?? "Designation"}}</span><b>⋅</b><span
+            class="profile-card-dept">{{department() ?? "Department"}}</span></p>
 </section>

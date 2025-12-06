@@ -1,0 +1,41 @@
+<main>
+    <app-head-logo></app-head-logo>
+    <app-logout></app-logout>
+    <section class="console-body">
+        <app-profile-card [profile]=""></app-profile-card>
+        <div class="status-cards">
+            <app-status-card iconUri="/ic-people.png" iconDesc="People Standard Icon" message="Today's Visitors"
+                [count]=""></app-status-card>
+            <app-status-card backgroundColor="#10b981" iconUri="/ic-tick.png" iconDesc="Tick Icon" message="Checked In"
+                [count]=""></app-status-card>
+            <app-status-card backgroundColor="#f59e0b" iconUri="/ic-clock.png" iconDesc="Clock Icon"
+                message="Pending Approval" [count]=""></app-status-card>
+            <app-status-card iconUri="/ic-calendar.png" iconDesc="Calendar Icon" message="Scheduled Today"
+                [count]=""></app-status-card>
+        </div>
+        <div class="console-menu">
+            <h2>Security Overview</h2>
+            <button type="button" class="menu-item menu-security" (click)="registerVisitor()"><img alt="Add Person Icon"
+                    src="/ic-add-person.png" /><span>Register Walk-In Visitor</span></button>
+            <button type="button" class="menu-item menu-visitor"><img alt="Calendar Icon"
+                    src="/ic-calendar.png" /><span>View Scheduled Visitors</span>
+            </button>
+        </div>
+        <div class="console-menu">
+            <h2>Kiosk Mode</h2>
+            <button type="button" class="menu-item menu-kiosk"><img alt="Calendar Icon"
+                    src="/ic-monitor.png" /><span>Launch Kiosk Self Check In</span>
+            </button>
+        </div>
+        <div class="activity-card">
+            <h2>Recent Activity</h2>
+
+            @for (visitor of visitors(); track visitor.nationalId){
+            <app-visitor-activity-card [visitor]="visitor"></app-visitor-activity-card>
+            }@empty {
+            <app-no-data-card iconSrc="/ic-arrow-up.png" message="No Visitor Activity Yet"></app-no-data-card>
+            }
+        </div>
+        <app-bottom-navigator></app-bottom-navigator>
+    </section>
+</main>

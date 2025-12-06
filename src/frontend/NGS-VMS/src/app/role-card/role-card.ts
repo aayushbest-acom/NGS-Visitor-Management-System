@@ -23,7 +23,7 @@ export class RoleCard {
       name: 'Receptionist',
       description: 'Register visitors and manage check-ins',
       iconSrcs: ['/ic-receptionist-48.png', '/ic-receptionist-96.png'],
-      routeLink: '#'
+      routeLink: '/receptionist-dashboard'
     };
     const hostOrStaff: Role = {
       name: 'Host/Staff',
