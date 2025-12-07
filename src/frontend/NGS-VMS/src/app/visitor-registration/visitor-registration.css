@@ -1,4 +1,95 @@
+/* Card container */
 .register-card {
-    background-color: white;
+    background: #fff;
     border-radius: 20px;
+    padding: 25px 35px;
+    width: 90%;
+    margin: 20px auto;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title header */
+.card-header h1 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+/* Fieldset styling */
+.section {
+    border: none;
+    margin-bottom: 25px;
+}
+
+.section legend {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Layout */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Inputs & textarea */
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    background: #f4f4f4;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+/* Label */
+.label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+/* Host Staff Chips */
+.chip-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.chip {
+    background: #eee;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.chip:hover {
+    background: #ddd;
+}
+
+/* Submit button */
+.submit-btn {
+    width: 100%;
+    background: #1a472a;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+}
+
+.chip.active {
+    background: #1a472a;
+    color: white;
+    font-weight: 600;
 }
