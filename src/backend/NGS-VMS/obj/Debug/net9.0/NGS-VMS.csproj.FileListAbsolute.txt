@@ -6,6 +6,12 @@ C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\NGS-VMS.runtimeconfig.json
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\NGS-VMS.dll
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\NGS-VMS.pdb
+C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\Genetec.Sdk.dll
+C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\Genetec.Sdk.Rest.Client.dll
+C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\Genetec.Sdk.Scripting.Compiler.dll
+C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\Genetec.Sdk.Scripting.Interfaces.dll
+C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\Genetec.Sdk.xml
+C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\NGS-VMS.csproj.AssemblyReference.cache
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\rpswa.dswa.cache.json
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\NGS-VMS.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\NGS-VMS.AssemblyInfoInputs.cache
@@ -21,6 +27,7 @@ C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\NGS-VMS.csproj.Up2Date
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\NGS-VMS.dll
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\refint\NGS-VMS.dll
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\NGS-VMS.pdb

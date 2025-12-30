@@ -7,4 +7,19 @@
     <RootNamespace>NGS_VMS</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Genetec.Sdk">
+      <HintPath>..\..\..\res\SDKs\Genetec\Genetec.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="Genetec.Sdk.Rest.Client">
+      <HintPath>..\..\..\res\SDKs\Genetec\Genetec.Sdk.Rest.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Genetec.Sdk.Scripting.Compiler">
+      <HintPath>..\..\..\res\SDKs\Genetec\Genetec.Sdk.Scripting.Compiler.dll</HintPath>
+    </Reference>
+    <Reference Include="Genetec.Sdk.Scripting.Interfaces">
+      <HintPath>..\..\..\res\SDKs\Genetec\Genetec.Sdk.Scripting.Interfaces.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

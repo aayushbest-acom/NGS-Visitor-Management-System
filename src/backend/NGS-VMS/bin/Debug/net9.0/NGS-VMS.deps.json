@@ -7,8 +7,46 @@
   "targets": {
     ".NETCoreApp,Version=v9.0": {
       "NGS-VMS/1.0.0": {
+        "dependencies": {
+          "Genetec.Sdk": "5.12.0.0",
+          "Genetec.Sdk.Rest.Client": "5.12.0.0",
+          "Genetec.Sdk.Scripting.Compiler": "5.12.0.0",
+          "Genetec.Sdk.Scripting.Interfaces": "5.12.0.0"
+        },
         "runtime": {
           "NGS-VMS.dll": {}
+        }
+      },
+      "Genetec.Sdk/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.dll": {
+            "assemblyVersion": "5.12.0.0",
+            "fileVersion": "5.12.2181.44"
+          }
+        }
+      },
+      "Genetec.Sdk.Rest.Client/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.Rest.Client.dll": {
+            "assemblyVersion": "5.12.0.0",
+            "fileVersion": "5.12.2181.44"
+          }
+        }
+      },
+      "Genetec.Sdk.Scripting.Compiler/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.Scripting.Compiler.dll": {
+            "assemblyVersion": "5.12.0.0",
+            "fileVersion": "5.12.2181.44"
+          }
+        }
+      },
+      "Genetec.Sdk.Scripting.Interfaces/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.Scripting.Interfaces.dll": {
+            "assemblyVersion": "5.12.0.0",
+            "fileVersion": "5.12.2181.44"
+          }
         }
       }
     }
@@ -16,6 +54,26 @@
   "libraries": {
     "NGS-VMS/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk/5.12.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk.Rest.Client/5.12.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk.Scripting.Compiler/5.12.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk.Scripting.Interfaces/5.12.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }
