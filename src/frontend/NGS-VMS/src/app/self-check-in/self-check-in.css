@@ -1,0 +1,6 @@
+main {
+    background: linear-gradient(45deg, #1f4c2f 40%, #2a573a 20%, #1f4c2f 40%);
+    /* background-color: #1f4c2f; */
+    border-radius: 20px;
+    height: 100%;
+}

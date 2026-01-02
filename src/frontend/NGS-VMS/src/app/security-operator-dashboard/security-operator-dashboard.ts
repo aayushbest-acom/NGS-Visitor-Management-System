@@ -1,9 +1,10 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { HeadLogo } from '../head-logo/head-logo';
 import { StatusCard } from "../status-card/status-card";
 import { BottomNavigator } from "../bottom-navigator/bottom-navigator";
 import { NoDataCard } from '../no-data-card/no-data-card';
 import { Visitor } from '../models/visitor';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-security-operator-dashboard',
   imports: [HeadLogo, StatusCard, BottomNavigator, NoDataCard],
@@ -30,7 +31,7 @@ export class SecurityOperatorDashboard {
   private contractorsMessage: string;
   readonly noVisitorMessage: string = "No Active Visitors";
   readonly noContractorMessage: string = "No Visitors in Restricted Area";
-
+  router: Router = inject(Router);
   constructor() {
     this.visitors = signal(new Array<Visitor>());
     this.restrictedAreaVisitors = signal(new Array<Visitor>());

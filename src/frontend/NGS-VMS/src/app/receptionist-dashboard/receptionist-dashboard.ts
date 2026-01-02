@@ -7,7 +7,7 @@ import { NoDataCard } from "../no-data-card/no-data-card";
 import { VisitorActivityCard } from "../visitor-activity-card/visitor-activity-card";
 import { ProfileCard } from "../profile-card/profile-card";
 import { Visitor } from '../models/visitor';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-receptionist-dashboard',
@@ -20,7 +20,9 @@ export class ReceptionistDashboard {
   visitors = signal(new Array<Visitor>());
   router = inject(Router);
   registerVisitor() {
-    console.log('inside');
     this.router.navigate(['visitor-register']);
+  }
+  doSelfCheckIn() {
+    this.router.navigate(['visitor-self-check-in']);
   }
 }

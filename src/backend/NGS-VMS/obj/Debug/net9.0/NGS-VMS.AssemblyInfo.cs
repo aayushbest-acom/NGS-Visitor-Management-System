@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NGS-VMS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42ebd9e516bc7e5693c37d497ed2ffaa3046b6d7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8589a17801f6e02cd5fc90f3fec5cf7c42842da7")]
 [assembly: System.Reflection.AssemblyProductAttribute("NGS-VMS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NGS-VMS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
