@@ -1,13 +1,49 @@
 <main>
     <header>
-        <img alt="security shield white icon" src="" />
+        <img alt="security shield white icon" src="./ic-security-shield-white.png" />
         <h1>National Gallery Singapore</h1>
         <p>Visitor Check In Kiosk</p>
-        <div class="home-navigator">
-            <button type="button"><img alt="Home Navigation White Icon" src="" /></button>
-        </div>
     </header>
-    <footer>
-        <button type="button"><img alt="Cancel Icon Cross Mark" src="" />Exit Kiosk Mode</button>
-    </footer>
+    <nav>
+        <ul>
+            <li><a href="#"><img alt="Home Navigation White Icon" src="./ic-home-white.png" /></a></li>
+        </ul>
+    </nav>
+    <section class="form-kiosk">
+        <form>
+            <fieldset>
+                <legend>Please Provide Your Details</legend>
+                <p>
+                    <input type="text" placeholder="Full Name *" required />
+                </p>
+                <p id="scanner">
+                    <input type="text" placeholder="NRIC/Passport *" required disabled />
+                    <button type="button">
+                        <img alt="scanner icon" src="./ic-scanner.png" />
+                        <span>Scan NRIC/Passport</span>
+                    </button>
+                </p>
+                <p>
+                    <input type="tel" placeholder="Phone Number *" required />
+                </p>
+                <p>
+                    <input type="text" placeholder="Company (optional)" />
+                </p>
+                <textarea placeholder="Purpose of Visit*" required spellcheck></textarea>
+                <label for="host">Select Host*</label>
+                <div class="host-select">
+                    <button type="button" class="host"><b>Dr.Sarah Chen</b><br />Curatorial</button>
+                    <button type="button" class="host"><b>Dr.Sarah Chen</b><br />Operations</button>
+                    <button type="button" class="host"><b>Priya Krishnan</b><br />Public Programs</button>
+                </div>
+                <button type="submit">Complete Check-In</button>
+                <button type="reset"> &LeftTeeArrow; Cancel</button>
+
+            </fieldset>
+        </form>
+        <button id="exitKioskBtn" type="button" (click)="navigateBack()"><img alt="Cancel Icon Cross Mark"
+                src="./ic-cross-white.png" />
+            <span>Exit Kiosk Mode</span>
+        </button>
+    </section>
 </main>

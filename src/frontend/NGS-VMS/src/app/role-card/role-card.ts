@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from "@angular/router";
+import { RoleService } from '../services/role-service';
+import { Role } from '../models/role.model';
 
 @Component({
   selector: 'app-role-card',
@@ -7,39 +10,19 @@ import { Component } from '@angular/core';
   styleUrl: './role-card.css',
 })
 export class RoleCard {
+
   roles: Array<Role>;
+  router = inject(Router);
+  roleService = inject(RoleService);
   constructor() {
-    this.roles = new Array<Role>();
-    this.initializeRoles();
+    this.roles = this.roleService.getRoles();
   }
-  private initializeRoles() {
-    const securityOperator: Role = {
-      name: 'Security Operator',
-      description: 'Monitor live visiotrs and access control',
-      iconSrcs: ['/ic-security-opeator-48.png', '/ic-security-operator-96.png'],
-      routeLink: '/security-dashboard'
-    };
-    const receptionist: Role = {
-      name: 'Receptionist',
-      description: 'Register visitors and manage check-ins',
-      iconSrcs: ['/ic-receptionist-48.png', '/ic-receptionist-96.png'],
-      routeLink: '/receptionist-dashboard'
-    };
-    const hostOrStaff: Role = {
-      name: 'Host/Staff',
-      description: 'Approve visitors and view appointments',
-      iconSrcs: ['/ic-staff-48.png', '/ic-staff-96.png'],
-      routeLink: '/host-admin-dashboard'
-    };
-    const administrator: Role = {
-      name: 'Administrator',
-      description: 'Full system access and configuration',
-      iconSrcs: ['/ic-administrator-50.png', '/ic-administrator-100.png'],
-      routeLink: '#'
-    };
-    this.roles.push(securityOperator);
-    this.roles.push(receptionist);
-    this.roles.push(hostOrStaff);
-    this.roles.push(administrator);
+  public navigateToLoginRole(role: Role) {
+    console.log('navigation role clicked');
+    this.router.navigate([role.routeLink], {
+      queryParams: {
+        roleActor: role.roleType
+      }
+    });
   }
 }

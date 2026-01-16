@@ -3,7 +3,7 @@
     <ul>
         @for (role of roles; track role.name) {
         <li>
-            <a [href]="role.routeLink">
+            <a  (click)="navigateToLoginRole(role)">
                 <picture>
                     @for (iconSrc of role.iconSrcs; track iconSrc) {
                     <source [src]="iconSrc" />

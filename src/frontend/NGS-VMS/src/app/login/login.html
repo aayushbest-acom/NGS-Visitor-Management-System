@@ -1,1 +1,26 @@
-<p>login works!</p>
+<main>
+    <header>
+        <app-head-logo></app-head-logo>
+    </header>
+    <section class="login-box">
+        <h2>Login to Visitor Management System</h2>
+        <div class="role">
+            <img alt="icon" [src]="roleIcon()" />
+            <span>{{roleName()}}</span>
+        </div>
+        <div class="login-form">
+            <form [formGroup]="loginFormGroup" (ngSubmit)="onLogin()">
+                <p id="username-input">
+                    <input type="text" name="username" placeholder="Username" minlength="4"
+                        formControlName="username" />
+                </p>
+                <p id="password-input">
+                    <input type="password" name="password" placeholder="Password" minlength="8"
+                        formControlName="password">
+                </p>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </section>
+
+</main>

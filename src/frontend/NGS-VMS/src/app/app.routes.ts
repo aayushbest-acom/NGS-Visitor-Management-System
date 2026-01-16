@@ -8,9 +8,12 @@ import { VisitorList } from './visitor-list/visitor-list';
 import { ReceptionistDashboard } from './receptionist-dashboard/receptionist-dashboard';
 import { VisitorRegistration } from './visitor-registration/visitor-registration';
 import { SelfCheckIn } from './self-check-in/self-check-in';
+import { Login } from './login/login';
 
 export const routes: Routes = [{ path: '', component: Home },
-{ path: 'security-dashboard', component: SecurityConsoleDashboard, title: 'Security Console Dashboard' },
+{
+    path: 'security-dashboard', component: SecurityConsoleDashboard, title: 'Security Console Dashboard'
+},
 { path: 'host-admin-dashboard', component: HostAdminDashboard, title: 'Host Administrator Dashboard' },
 { path: 'audit-logs', component: AuditLog, title: 'Audit Logs' },
 { path: 'visitor-list', component: VisitorList, title: 'Visitor List', pathMatch: 'full' },
@@ -18,6 +21,7 @@ export const routes: Routes = [{ path: '', component: Home },
     path: 'receptionist-dashboard', component: ReceptionistDashboard, title: 'Receptionist Dashboard', pathMatch: 'full'
 },
 { path: 'visitor-register', component: VisitorRegistration, title: 'Visitor Registration', pathMatch: 'full' },
-{ path: 'visitor-self-check-in', component: SelfCheckIn, title: 'Self Check In', pathMatch: 'full' }
-
+{ path: 'visitor-self-check-in', component: SelfCheckIn, title: 'Self Check In', pathMatch: 'full' },
+{ path: 'security-operator', component: SecurityOperatorDashboard, title: 'Security Operator Dashboard' },
+{ path: 'login', component: Login }
 ];  
