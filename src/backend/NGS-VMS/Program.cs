@@ -10,10 +10,7 @@ builder.Services.AddCors((options) =>
     options.AddPolicy("AllowAll",
     p => p.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 });
-builder.Services.AddHttpsRedirection((option) =>
-{
-    option.HttpsPort = 7079;
-});
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
