@@ -27,13 +27,10 @@ app.MapPost("/api/visitor/register", (Visitor visitor, GenetecVisitorService ser
     return Results.Ok();
 });
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-    app.UseCors("ngFrontend");
 
-}
+app.UseSwagger();
+app.UseSwaggerUI();
+app.UseCors("ngFrontend");
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
