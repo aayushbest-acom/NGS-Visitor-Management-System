@@ -7,17 +7,16 @@ builder.Services.AddSingleton<GenetecVisitorAdaptor>();
 builder.Services.AddScoped<GenetecVisitorService>();
 builder.Services.AddCors((options) =>
 {
-    options.AddPolicy("ngFrontend",
+    options.AddPolicy("AllowAll",
     p => p.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 });
-builder.Services.AddHttpsRedirection((option) =>
-{
-    option.HttpsPort = 7079;
-});
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var app = builder.Build();
+app.UseRouting();
+app.UseCors("AllowAll");
 
 app.MapGet("/", () => "Hello from NGS-VMS Backend Server!");
 app.MapPost("/api/ng", (string message) =>
@@ -34,10 +33,6 @@ app.MapPost("/api/visitor/register", (Visitor visitor, GenetecVisitorService ser
 
 app.UseSwagger();
 app.UseSwaggerUI();
-app.UseCors("ngFrontend");
-
-
-app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
