@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RG+JWx/b++w=",
+  "dgSpecHash": "0Cf3QBxHqcE=",
   "success": true,
   "projectFilePath": "C:\\Users\\ARE-GIGA08\\NGS-Visitor-Management-System\\src\\backend\\NGS-VMS\\NGS-VMS.csproj",
   "expectedPackageFiles": [
@@ -12,7 +12,8 @@
     "C:\\Users\\ARE-GIGA08\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\10.1.0\\swashbuckle.aspnetcore.swaggergen.10.1.0.nupkg.sha512",
     "C:\\Users\\ARE-GIGA08\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\10.1.0\\swashbuckle.aspnetcore.swaggerui.10.1.0.nupkg.sha512",
     "C:\\Users\\ARE-GIGA08\\.nuget\\packages\\system.drawing.common\\10.0.2\\system.drawing.common.10.0.2.nupkg.sha512",
-    "C:\\Users\\ARE-GIGA08\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512"
+    "C:\\Users\\ARE-GIGA08\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512",
+    "C:\\Users\\ARE-GIGA08\\.nuget\\packages\\system.threading.accesscontrol\\10.0.2\\system.threading.accesscontrol.10.0.2.nupkg.sha512"
   ],
   "logs": []
 }

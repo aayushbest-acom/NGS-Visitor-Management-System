@@ -10,6 +10,7 @@
         "dependencies": {
           "Swashbuckle.AspNetCore": "10.1.0",
           "System.Drawing.Common": "10.0.2",
+          "System.Threading.AccessControl": "10.0.2",
           "Genetec.Sdk": "5.12.0.0",
           "Genetec.Sdk.Rest.Client": "5.12.0.0",
           "Genetec.Sdk.Scripting.Compiler": "5.12.0.0",
@@ -105,6 +106,22 @@
         }
       },
       "System.Text.Json/8.0.5": {},
+      "System.Threading.AccessControl/10.0.2": {
+        "runtime": {
+          "lib/net9.0/System.Threading.AccessControl.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.225.61305"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net9.0/System.Threading.AccessControl.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.225.61305"
+          }
+        }
+      },
       "Genetec.Sdk/5.12.0.0": {
         "runtime": {
           "Genetec.Sdk.dll": {
@@ -207,6 +224,13 @@
       "sha512": "sha512-0f1B50Ss7rqxXiaBJyzUu9bWFOO2/zSlifZ/UNMdiIpDYe4cY4LQQicP4nirK1OS31I43rn062UIJ1Q9bpmHpg==",
       "path": "system.text.json/8.0.5",
       "hashPath": "system.text.json.8.0.5.nupkg.sha512"
+    },
+    "System.Threading.AccessControl/10.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oASBukOYT+HyJeekgLtZ9drK/w7JTR3BnwZgQRdx1UhCjDyRVUGsAX6CBVsKI5SglYlOMo9kdDpOG17MJ550Gw==",
+      "path": "system.threading.accesscontrol/10.0.2",
+      "hashPath": "system.threading.accesscontrol.10.0.2.nupkg.sha512"
     },
     "Genetec.Sdk/5.12.0.0": {
       "type": "reference",
