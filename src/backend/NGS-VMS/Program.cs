@@ -10,7 +10,10 @@ builder.Services.AddCors((options) =>
     options.AddPolicy("AllowAll",
     p => p.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 });
-
+builder.Services.AddHttpsRedirection((option) =>
+{
+    option.HttpsPort = 7079;
+});
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -33,6 +36,9 @@ app.MapPost("/api/visitor/register", (Visitor visitor, GenetecVisitorService ser
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
+
+app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
