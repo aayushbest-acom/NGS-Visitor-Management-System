@@ -33,3 +33,8 @@ C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\NGS-VMS.pdb
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\NGS-VMS.genruntimeconfig.cache
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\ref\NGS-VMS.dll
+C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\NGS-VMS.MvcApplicationPartsAssemblyInfo.cs

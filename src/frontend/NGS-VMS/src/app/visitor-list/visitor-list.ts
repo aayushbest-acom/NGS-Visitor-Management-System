@@ -26,12 +26,12 @@ export class VisitorList {
   }
 
   searchVisitor($event: KeyboardEvent) {
-    this.visitors.update(() => this.visitorService.getVisitors().filter((visitor) => visitor.name.includes(this.searchTerm()) || visitor.nationalId.includes(this.searchTerm()) || visitor.hostStaff.name.includes(this.searchTerm())));
+    this.visitors.update(() => this.visitorService.getVisitors().filter((visitor: Visitor) => visitor.name.includes(this.searchTerm()) || visitor.nationalId.includes(this.searchTerm()) || visitor.hostStaff.name.includes(this.searchTerm())));
   }
 
   filterVisitorsByStatus(statusType: string) {
     this.currentFilter.set(statusType);
-    this.visitors.update(() => this.visitorService.getVisitors().filter((visitor) => visitor.status === statusType));
+    this.visitors.update(() => this.visitorService.getVisitors().filter((visitor: Visitor) => visitor.status === statusType));
   }
 
 }

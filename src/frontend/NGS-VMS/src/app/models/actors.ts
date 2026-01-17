@@ -4,5 +4,6 @@ export enum Actors {
     RECEPTIONIST,
     SECURITY_OPERATOR,
     VISITOR,
-    CONTRACTOR
+    CONTRACTOR,
+    NONE
 }

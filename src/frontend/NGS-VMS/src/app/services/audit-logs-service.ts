@@ -5,8 +5,12 @@ import { AuditLogModel } from '../models/audit-log-model';
   providedIn: 'root',
 })
 export class AuditLogsService {
-  private auditLogsData = signal(new Array<AuditLogModel>());
-  public getAuditLogs(): Array<AuditLogModel> {
-    return this.auditLogsData();
+  private _auditLogsData = signal(new Array<AuditLogModel>());
+  constructor() {
+
   }
+  public getAuditLogs(): Array<AuditLogModel> {
+    return this._auditLogsData();
+  }
+
 }

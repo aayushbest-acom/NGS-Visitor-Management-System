@@ -6,12 +6,15 @@ import { Actors } from '../models/actors';
 })
 export class AuthService {
   public static readonly AUTH_KEY: string = "AUTH_STATUS";
-  public static readonly AUTH_KEY_LOGGED_IN: string = "AUTH_LOGGED_IN";
-  public static readonly AUTH_KEY_LOGGED_OUT: string = "AUTH_LOGGED_OUT";
+  private static readonly AUTH_KEY_LOGGED_IN: string = "AUTH_LOGGED_IN";
+  private static readonly AUTH_KEY_LOGGED_OUT: string = "AUTH_LOGGED_OUT";
   private static readonly AUTH_CREDENTIAL: string = "AUTH_WHO_LOGGED_IN";
-  public doLogIn(actor: Actors, credential: { username: string, password: string }): boolean {
-    localStorage.setItem(AuthService.AUTH_KEY, AuthService.AUTH_KEY_LOGGED_IN);
-    localStorage.setItem(AuthService.AUTH_CREDENTIAL, actor.toString());
+
+  public doLogIn(actor: Actors, username: string | null, password: string | null): boolean {
+    if (this.verifyCredentialHelper(actor, username, password)) {
+      localStorage.setItem(AuthService.AUTH_KEY, AuthService.AUTH_KEY_LOGGED_IN);
+      localStorage.setItem(AuthService.AUTH_CREDENTIAL, actor.toString());
+    }
     return localStorage.getItem(AuthService.AUTH_KEY) === AuthService.AUTH_KEY_LOGGED_IN
       && localStorage.getItem(AuthService.AUTH_CREDENTIAL) !== null;
   }
@@ -26,5 +29,23 @@ export class AuthService {
   }
   public isLoggedIn(): boolean {
     return localStorage.getItem(AuthService.AUTH_KEY) !== null && localStorage.getItem(AuthService.AUTH_CREDENTIAL) !== null;
+  }
+  private verifyCredentialHelper(actor: Actors, username: string | null, password: string | null): boolean {
+    if (username !== null && password !== null) {
+      const defaultPassword = "Pass@123"
+      switch (actor) {
+        case Actors.RECEPTIONIST:
+          return username === "receptionist" && password === defaultPassword;
+        case Actors.CONTRACTOR:
+          return username === "contractor" && password === defaultPassword;
+        case Actors.HOST:
+          return username === "host" && password === defaultPassword;
+        case Actors.SECURITY_OPERATOR:
+          return username === "security" && password === defaultPassword;
+        default:
+          return false;
+      }
+    }
+    return false;
   }
 }

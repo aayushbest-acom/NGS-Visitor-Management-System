@@ -36,7 +36,7 @@ export class AuditLog {
 
   filterAuditLogs(logType: LogType) {
     this.currentFilter.set(logType);
-    this.auditLogs.update(() => this.auditLogService.getAuditLogs().filter((auditLog) => auditLog.kind === logType));
+    this.auditLogs.update(() => this.auditLogService.getAuditLogs().filter((auditLog: AuditLogModel) => auditLog.kind === logType));
   }
 
 }

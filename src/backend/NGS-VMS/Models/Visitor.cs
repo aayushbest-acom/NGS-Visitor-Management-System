@@ -20,7 +20,7 @@ namespace NGS_VMS
 
         public string VisitStatus { set; get; } = null!;
 
-        public DateTime ScheduledAt { set; get; }
+        public DateTime? ScheduledAt { set; get; }
 
         public DateTime CheckedInAt { set; get; }
 
@@ -28,7 +28,7 @@ namespace NGS_VMS
 
         public Profile ScheduledBy { set; get; } = null!;
 
-        public PremiseLocation CurrentLcoation { set; get; } = null!;
+        public PremiseLocation CurrentLocation { set; get; } = null!;
 
         public string Access { set; get; } = null!;
 
