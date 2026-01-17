@@ -14,7 +14,9 @@ C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\System.Drawing.Common.dll
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\System.Private.Windows.Core.dll
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\System.Private.Windows.GdiPlus.dll
+C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\System.Threading.AccessControl.dll
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\runtimes\win\lib\net9.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Threading.AccessControl.dll
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\Genetec.Sdk.dll
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\Genetec.Sdk.Rest.Client.dll
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\Genetec.Sdk.Scripting.Compiler.dll
@@ -43,5 +45,3 @@ C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\NGS-VMS.pdb
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\NGS-VMS.genruntimeconfig.cache
 C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\obj\Debug\net9.0\ref\NGS-VMS.dll
-C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\System.Threading.AccessControl.dll
-C:\Users\ARE-GIGA08\NGS-Visitor-Management-System\src\backend\NGS-VMS\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Threading.AccessControl.dll
