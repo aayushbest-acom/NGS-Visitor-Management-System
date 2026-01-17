@@ -16,6 +16,11 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello from NGS-VMS Backend Server!");
+app.MapPost("/api/ng", (string message) =>
+{
+    Console.WriteLine("Message From Frontend: " + message);
+    return Results.Accepted();
+});
 app.MapPost("/api/visitor/register", (Visitor visitor, GenetecVisitorService service) =>
 {
     service.RegisterVisitor(visitor);

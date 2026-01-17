@@ -8,7 +8,7 @@ public class GenetecConnection
     public Engine Engine { get; }
     public GenetecConnection(IConfiguration configuration)
     {
-        // GenetecSdkResolver.Initialize();
+        GenetecSdkResolver.Initialize();
         Engine = new Engine();
         Engine.LogOn(configuration["Genetec:ServerIPAddress"],
                            configuration["Genetec:Username"],
