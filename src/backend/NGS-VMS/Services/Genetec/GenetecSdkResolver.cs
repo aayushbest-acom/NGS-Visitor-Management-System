@@ -6,73 +6,90 @@ using System.Reflection;
 using Microsoft.Win32;
 namespace NGS_VMS.Services;
 
-
 public static class GenetecSdkResolver
 {
-    private static string s_probingPath = string.Empty;
+    private static string? s_probingPath;
+
     public static void Initialize()
     {
-        AppDomain.CurrentDomain.AssemblyResolve += OnAssemblyResolve;
         s_probingPath = GetProbingPath();
+
+        if (string.IsNullOrWhiteSpace(s_probingPath) || !Directory.Exists(s_probingPath))
+        {
+            throw new InvalidOperationException(
+                "Genetec SDK installation not found. " +
+                "Set GSC_SDK environment variable or install Security Center SDK.");
+        }
+
+        AppDomain.CurrentDomain.AssemblyResolve += OnAssemblyResolve;
     }
+
+    private static Assembly? OnAssemblyResolve(object? sender, ResolveEventArgs args)
+    {
+        if (string.IsNullOrWhiteSpace(s_probingPath))
+            return null;
+
+        var requested = new AssemblyName(args.Name).Name;
+        if (requested == null)
+            return null;
+
+        var dllPath = Path.Combine(s_probingPath, requested + ".dll");
+        var exePath = Path.Combine(s_probingPath, requested + ".exe");
+
+        try
+        {
+            if (File.Exists(dllPath))
+                return Assembly.LoadFrom(dllPath);
+
+            if (File.Exists(exePath))
+                return Assembly.LoadFrom(exePath);
+        }
+        catch
+        {
+            // swallow – let CLR continue probing
+        }
+
+        return null;
+    }
+
     private static string? GetProbingPath()
     {
-        string? sdkFolder = Environment.GetEnvironmentVariable("GSC_SDK");
-        return Directory.Exists(sdkFolder)
-        ? sdkFolder
-        : GetInstallationFolders().OrderBy(t => t.Version).Where(t => Directory.Exists(t.Folder)).Select(t => t.Folder).LastOrDefault();
-        IEnumerable<(Version Version, string Folder)> GetInstallationFolders()
+        // 1️⃣ Environment variable (preferred)
+        var sdkFolder = Environment.GetEnvironmentVariable("GSC_SDK");
+        if (!string.IsNullOrWhiteSpace(sdkFolder) && Directory.Exists(sdkFolder))
+            return sdkFolder;
+
+        // 2️⃣ Registry fallback
+        return GetInstallationFolders()
+            .OrderBy(t => t.Version)
+            .Select(t => t.Folder)
+            .LastOrDefault(Directory.Exists);
+
+        static IEnumerable<(Version Version, string Folder)> GetInstallationFolders()
         {
-            foreach (var root in new[] { @"SOFTWARE\Genetec\Security Center\", @"SOFTWARE\Wow6432Node\Genetec\Security Center\" })
+            foreach (var root in new[]
             {
-                using (RegistryKey key = Registry.LocalMachine.OpenSubKey(root))
+                @"SOFTWARE\Genetec\Security Center\",
+                @"SOFTWARE\Wow6432Node\Genetec\Security Center\"
+            })
+            {
+                using var key = Registry.LocalMachine.OpenSubKey(root);
+                if (key == null) continue;
+
+                foreach (var name in key.GetSubKeyNames())
                 {
-                    if (key is null)
-                    {
+                    if (!Version.TryParse(name, out var version))
                         continue;
-                    }
-                    foreach (var name in key.GetSubKeyNames())
-                    {
-                        if (Version.TryParse(name, out Version version))
-                        {
-                            using RegistryKey subKey = key.OpenSubKey(name);
-                            if (subKey is null)
-                            {
-                                continue;
-                            }
-                            if (subKey.GetValue("Installation Path") is string path)
-                            {
-                                yield return (version, path);
-                            }
-                            else if (subKey.GetValue("InstallDir") is string dir)
-                            {
-                                yield return (version, dir);
-                            }
-                        }
-                    }
+
+                    using var subKey = key.OpenSubKey(name);
+                    if (subKey == null) continue;
+
+                    if (subKey.GetValue("Installation Path") is string path)
+                        yield return (version, path);
+                    else if (subKey.GetValue("InstallDir") is string dir)
+                        yield return (version, dir);
                 }
             }
-        }
-    }
-    private static Assembly? OnAssemblyResolve(object? sender, ResolveEventArgs? args)
-    {
-        foreach (var assemblyFile in GetAssemblyPaths(s_probingPath).Where(File.Exists))
-        {
-            try
-            {
-                return Assembly.LoadFile(assemblyFile);
-            }
-            catch
-            {
-            }
-        }
-        return null;
-
-        IEnumerable<string> GetAssemblyPaths(string probingPath)
-        {
-            var assemblyName = new AssemblyName(args.Name);
-            yield return Path.Combine(probingPath, $"{assemblyName.Name}.dll");
-            yield return Path.Combine(probingPath, $"{assemblyName.Name}.exe");
         }
     }
 }

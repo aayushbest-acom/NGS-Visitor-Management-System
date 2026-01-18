@@ -13,10 +13,22 @@
           "System.Drawing.Common": "10.0.2",
           "System.Security.AccessControl": "6.0.1",
           "System.Threading.AccessControl": "10.0.2",
+          "Genetec.Sdk.Controls": "5.12.0.0",
           "Genetec.Sdk": "5.12.0.0",
-          "Genetec.Sdk.Rest.Client": "5.12.0.0",
+          "Genetec.Sdk.Intrusion": "5.12.0.0",
+          "Genetec.Sdk.Maps": "5.12.0.0",
+          "Genetec.Sdk.Media": "5.12.0.0",
+          "Genetec.Sdk.Media.Extension": "5.12.0.0",
+          "Genetec.Sdk.Plugin": "5.12.0.0",
+          "Genetec.Sdk.Rest.Client": "5.10.0.0",
+          "Genetec.Sdk.Rest.Interface": "5.12.0.0",
+          "Genetec.Sdk.Rest.Role": "5.12.0.0",
           "Genetec.Sdk.Scripting.Compiler": "5.12.0.0",
-          "Genetec.Sdk.Scripting.Interfaces": "5.12.0.0"
+          "Genetec.Sdk.Scripting": "5.12.0.0",
+          "Genetec.Sdk.Scripting.Interfaces": "5.10.0.0",
+          "Genetec.Sdk.UnitExtensions": "5.12.0.0",
+          "Genetec.Sdk.Web.Role": "5.12.0.0",
+          "Genetec.Sdk.Workspace": "5.12.0.0"
         },
         "runtime": {
           "NGS-VMS.dll": {}
@@ -1082,19 +1094,83 @@
           }
         }
       },
+      "Genetec.Sdk.Controls/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.Controls.dll": {
+            "assemblyVersion": "5.12.0.0",
+            "fileVersion": "5.12.1239.0"
+          }
+        }
+      },
       "Genetec.Sdk/5.12.0.0": {
         "runtime": {
           "Genetec.Sdk.dll": {
             "assemblyVersion": "5.12.0.0",
-            "fileVersion": "5.12.2181.44"
+            "fileVersion": "5.12.1239.0"
           }
         }
       },
-      "Genetec.Sdk.Rest.Client/5.12.0.0": {
+      "Genetec.Sdk.Intrusion/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.Intrusion.dll": {
+            "assemblyVersion": "5.12.0.0",
+            "fileVersion": "5.12.1239.0"
+          }
+        }
+      },
+      "Genetec.Sdk.Maps/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.Maps.dll": {
+            "assemblyVersion": "5.12.0.0",
+            "fileVersion": "5.12.1239.0"
+          }
+        }
+      },
+      "Genetec.Sdk.Media/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.Media.dll": {
+            "assemblyVersion": "5.12.0.0",
+            "fileVersion": "5.12.1239.0"
+          }
+        }
+      },
+      "Genetec.Sdk.Media.Extension/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.Media.Extension.dll": {
+            "assemblyVersion": "5.12.0.0",
+            "fileVersion": "5.12.1239.0"
+          }
+        }
+      },
+      "Genetec.Sdk.Plugin/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.Plugin.dll": {
+            "assemblyVersion": "5.12.0.0",
+            "fileVersion": "5.12.1239.0"
+          }
+        }
+      },
+      "Genetec.Sdk.Rest.Client/5.10.0.0": {
         "runtime": {
           "Genetec.Sdk.Rest.Client.dll": {
+            "assemblyVersion": "5.10.0.0",
+            "fileVersion": "5.10.4112.19032"
+          }
+        }
+      },
+      "Genetec.Sdk.Rest.Interface/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.Rest.Interface.dll": {
             "assemblyVersion": "5.12.0.0",
-            "fileVersion": "5.12.2181.44"
+            "fileVersion": "5.12.1239.0"
+          }
+        }
+      },
+      "Genetec.Sdk.Rest.Role/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.Rest.Role.dll": {
+            "assemblyVersion": "5.12.0.0",
+            "fileVersion": "5.12.1239.0"
           }
         }
       },
@@ -1102,15 +1178,47 @@
         "runtime": {
           "Genetec.Sdk.Scripting.Compiler.dll": {
             "assemblyVersion": "5.12.0.0",
-            "fileVersion": "5.12.2181.44"
+            "fileVersion": "5.12.1239.0"
           }
         }
       },
-      "Genetec.Sdk.Scripting.Interfaces/5.12.0.0": {
+      "Genetec.Sdk.Scripting/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.Scripting.dll": {
+            "assemblyVersion": "5.12.0.0",
+            "fileVersion": "5.12.1239.75"
+          }
+        }
+      },
+      "Genetec.Sdk.Scripting.Interfaces/5.10.0.0": {
         "runtime": {
           "Genetec.Sdk.Scripting.Interfaces.dll": {
+            "assemblyVersion": "5.10.0.0",
+            "fileVersion": "5.10.4112.19032"
+          }
+        }
+      },
+      "Genetec.Sdk.UnitExtensions/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.UnitExtensions.dll": {
             "assemblyVersion": "5.12.0.0",
-            "fileVersion": "5.12.2181.44"
+            "fileVersion": "5.12.1239.0"
+          }
+        }
+      },
+      "Genetec.Sdk.Web.Role/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.Web.Role.dll": {
+            "assemblyVersion": "5.12.0.0",
+            "fileVersion": "5.12.1239.0"
+          }
+        }
+      },
+      "Genetec.Sdk.Workspace/5.12.0.0": {
+        "runtime": {
+          "Genetec.Sdk.Workspace.dll": {
+            "assemblyVersion": "5.12.0.0",
+            "fileVersion": "5.12.1239.0"
           }
         }
       }
@@ -1598,12 +1706,52 @@
       "path": "system.windows.extensions/10.0.2",
       "hashPath": "system.windows.extensions.10.0.2.nupkg.sha512"
     },
+    "Genetec.Sdk.Controls/5.12.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Genetec.Sdk/5.12.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Genetec.Sdk.Rest.Client/5.12.0.0": {
+    "Genetec.Sdk.Intrusion/5.12.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk.Maps/5.12.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk.Media/5.12.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk.Media.Extension/5.12.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk.Plugin/5.12.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk.Rest.Client/5.10.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk.Rest.Interface/5.12.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk.Rest.Role/5.12.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -1613,7 +1761,27 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Genetec.Sdk.Scripting.Interfaces/5.12.0.0": {
+    "Genetec.Sdk.Scripting/5.12.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk.Scripting.Interfaces/5.10.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk.UnitExtensions/5.12.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk.Web.Role/5.12.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Genetec.Sdk.Workspace/5.12.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
