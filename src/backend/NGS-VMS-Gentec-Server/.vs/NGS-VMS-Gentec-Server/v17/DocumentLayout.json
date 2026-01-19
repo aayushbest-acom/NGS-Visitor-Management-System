@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|solutionrelative:genetecconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|C:\\Users\\ARE-GIGA08\\NGS-Visitor-Management-System\\src\\backend\\NGS-VMS-Gentec-Server\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|C:\\Users\\ARE-GIGA08\\NGS-Visitor-Management-System\\src\\backend\\NGS-VMS-Gentec-Server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|C:\\Users\\ARE-GIGA08\\NGS-Visitor-Management-System\\src\\backend\\NGS-VMS-Gentec-Server\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|C:\\Users\\ARE-GIGA08\\NGS-Visitor-Management-System\\src\\backend\\NGS-VMS-Gentec-Server\\models\\premiselocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -83,15 +83,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ARE-GIGA08\\NGS-Visitor-Management-System\\src\\backend\\NGS-VMS-Gentec-Server\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\ARE-GIGA08\\NGS-Visitor-Management-System\\src\\backend\\NGS-VMS-Gentec-Server\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAQwEQAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-18T10:59:27.655Z"
+              "WhenOpened": "2026-01-18T10:59:27.655Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -101,7 +102,7 @@
               "RelativeDocumentMoniker": "GenetecConnection.cs",
               "ToolTip": "C:\\Users\\ARE-GIGA08\\NGS-Visitor-Management-System\\src\\backend\\NGS-VMS-Gentec-Server\\GenetecConnection.cs",
               "RelativeToolTip": "GenetecConnection.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAIAwwBwAAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA5wCgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-18T11:03:00.867Z",
               "EditorCaption": ""
@@ -120,7 +121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "App.config",
               "DocumentMoniker": "C:\\Users\\ARE-GIGA08\\NGS-Visitor-Management-System\\src\\backend\\NGS-VMS-Gentec-Server\\App.config",
               "RelativeDocumentMoniker": "App.config",
@@ -128,8 +129,7 @@
               "RelativeToolTip": "App.config",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-01-18T11:07:25.241Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-18T11:07:25.241Z"
             }
           ]
         }
