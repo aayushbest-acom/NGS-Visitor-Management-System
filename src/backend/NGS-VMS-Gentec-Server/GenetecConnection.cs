@@ -12,7 +12,7 @@ namespace NGS_VMS_Gentec_Server
     {
         public Engine Engine { get; }
         public static Boolean IsConnected { get; set; }
-        public GenetecConnection()
+        public  GenetecConnection()
         {
             GenetecSdkResolver.Initialize();
             var configuration = ConfigurationManager.AppSettings;
@@ -23,10 +23,11 @@ namespace NGS_VMS_Gentec_Server
             Console.WriteLine($"Server IP Address: {serverIPAddr}\nUsername:{username}\nPassword:{password}");
             Engine = new Engine();
             Console.WriteLine("Initialized Engine...\nNow Login...");
-            Engine.LogOn(serverIPAddr,username,password);
+            Engine.LogOnAsync(serverIPAddr,username,password);
             Engine.LogonStatusChanged += Engine_LogonStatusChanged;
             Engine.LoggedOn += Engine_LoggedOnChanged;
             Engine.LogonFailed += Engine_LogonFailedChanged;
+            Engine.BeginLogOn(serverIPAddr,username,password);
             IsConnected = Engine.IsConnected;
             if (IsConnected)
             {
