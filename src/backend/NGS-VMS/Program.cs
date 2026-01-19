@@ -2,8 +2,6 @@ using NGS_VMS;
 using NGS_VMS.Services.Genetec;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddSingleton<GenetecConnection>();
-builder.Services.AddSingleton<GenetecVisitorAdaptor>();
 builder.Services.AddScoped<GenetecVisitorService>();
 builder.Services.AddCors((options) =>
 {
@@ -26,7 +24,7 @@ app.MapPost("/api/ng", (string message) =>
 });
 app.MapPost("/api/visitor/register", (Visitor visitor, GenetecVisitorService service) =>
 {
-    service.RegisterVisitor(visitor);
+   // service.RegisterVisitor(visitor);
     return Results.Ok();
 });
 

@@ -13,7 +13,7 @@ public class GenetecVisitorAdaptor
     }
 
 
-    public Cardholder CreateCardHolder(Visitor visitor)
+    public Cardholder CreateCardHolder(NGS_VMS.Visitor visitor)
     {
         _engine.TransactionManager.CreateTransaction();
         var cardHolder = _engine.CreateEntity("Visitor", EntityType.Cardholder) as Cardholder;
