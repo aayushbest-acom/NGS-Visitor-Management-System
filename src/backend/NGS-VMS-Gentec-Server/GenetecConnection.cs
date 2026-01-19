@@ -15,13 +15,17 @@ namespace NGS_VMS_Gentec_Server
         {
             GenetecSdkResolver.Initialize();
             var configuration = ConfigurationManager.AppSettings;
+            Console.WriteLine("Loading Configuration Settings:\n");
+            var serverIPAddr = configuration["Genetec:ServerIPAddress"];
+            var username = configuration["Genetec:Username"];
+            var password = configuration["Genetec:Password"];
+            Console.WriteLine($"Server IP Address: {serverIPAddr}\nUsername:{username}\nPassword:{password}");
             Engine = new Engine();
-            Engine.LogOn(configuration["Genetec:ServerIPAddress"],
-                               configuration["Genetec:Username"],
-                                configuration["Genetec:Password"]);
+            Console.WriteLine("Initialized Engine...\nNow Login...");
+            Engine.LogOn(serverIPAddr,username,password);
             Engine.LogonStatusChanged += Engine_LogonStatusChanged;
         }
-
+        
         private void Engine_LogonStatusChanged(object sender, LogonStatusChangedEventArgs e)
         {
             if (e != null)

@@ -12,6 +12,7 @@ namespace NGS_VMS_Gentec_Server
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Program Started...\nTrying to Connect with Genetec!");
             GenetecConnection genetecConnection = new GenetecConnection();
             Console.WriteLine("Initialized Genetec");
 
