@@ -26,7 +26,7 @@ namespace NGS_VMS_Gentec_Server
             Engine.LogonStatusChanged += Engine_LogonStatusChanged;
             Engine.LoggedOn += Engine_LoggedOnChanged;
             Engine.LogonFailed += Engine_LogonFailedChanged;
-
+            Console.WriteLine("Logged User is " + Engine.LoggedUser.Name);
 
         }
 
