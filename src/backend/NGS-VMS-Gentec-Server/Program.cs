@@ -63,9 +63,15 @@ namespace NGS_VMS_Gentec_Server
             };
 
             Console.WriteLine("Sample Object for Visitor is created!");
-
-            genetecVisitorService.RegisterVisitor(visitor);
-            Console.WriteLine("Process ended Successfully!");
+            if (GenetecConnection.IsConnected)
+            {
+                genetecVisitorService.RegisterVisitor(visitor);
+            }
+            else
+            {
+                Console.WriteLine("Unable to Register Visitor due to Connection Failure!");
+            }
+                Console.WriteLine("Process ended Successfully!");
             //Preventing Console to Go away!
             Console.ReadLine();
 

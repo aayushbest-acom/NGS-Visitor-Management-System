@@ -11,6 +11,7 @@ namespace NGS_VMS_Gentec_Server
     internal class GenetecConnection
     {
         public Engine Engine { get; }
+        public static Boolean IsConnected { get; set; }
         public GenetecConnection()
         {
             GenetecSdkResolver.Initialize();
@@ -26,15 +27,15 @@ namespace NGS_VMS_Gentec_Server
             Engine.LogonStatusChanged += Engine_LogonStatusChanged;
             Engine.LoggedOn += Engine_LoggedOnChanged;
             Engine.LogonFailed += Engine_LogonFailedChanged;
-            if(Engine.LoggedUser != null)
+            IsConnected = Engine.IsConnected;
+            if (IsConnected)
             {
-                Console.WriteLine($"Logged User is {Engine.LoggedUser.Name}");
+                Console.WriteLine("Connected Successfully to Genetec!");
             }
             else
             {
-                Console.WriteLine("Logged User Not Found!");
+                Console.WriteLine("Connection Failed!");
             }
-
         }
 
         private void Engine_LogonFailedChanged(object sender, LogonFailedEventArgs e)
