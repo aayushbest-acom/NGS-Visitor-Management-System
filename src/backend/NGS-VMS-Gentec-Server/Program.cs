@@ -66,7 +66,8 @@ namespace NGS_VMS_Gentec_Server
 
             genetecVisitorService.RegisterVisitor(visitor);
             Console.WriteLine("Process ended Successfully!");
-
+            //Preventing Console to Go away!
+            Console.ReadLine();
 
         }
     }

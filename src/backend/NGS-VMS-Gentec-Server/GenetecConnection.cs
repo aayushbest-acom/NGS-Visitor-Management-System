@@ -24,8 +24,32 @@ namespace NGS_VMS_Gentec_Server
             Console.WriteLine("Initialized Engine...\nNow Login...");
             Engine.LogOn(serverIPAddr,username,password);
             Engine.LogonStatusChanged += Engine_LogonStatusChanged;
+            Engine.LoggedOn += Engine_LoggedOnChanged;
+            Engine.LogonFailed += Engine_LogonFailedChanged;
+
+
         }
-        
+
+        private void Engine_LogonFailedChanged(object sender, LogonFailedEventArgs e)
+        {
+            Console.WriteLine("Inside Logged On Failed Delegate!");
+            if(e != null)
+            {
+                Console.WriteLine("Logged Failed Reason:" + e.SdkException.Message);
+
+            }
+        }
+
+        private void Engine_LoggedOnChanged(object sender, LoggedOnEventArgs e)
+        {
+            Console.WriteLine("Iniside Logged On Delegate");
+            if(e != null)
+            {
+                Console.WriteLine("Logged Server Name:" + e.ServerName);
+
+            }
+        }
+
         private void Engine_LogonStatusChanged(object sender, LogonStatusChangedEventArgs e)
         {
             if (e != null)

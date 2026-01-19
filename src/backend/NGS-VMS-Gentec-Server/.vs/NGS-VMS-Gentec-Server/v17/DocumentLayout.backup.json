@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\ARE-GIGA08\\NGS-Visitor-Management-System\\src\\backend\\NGS-VMS-Gentec-Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|C:\\Users\\ARE-GIGA08\\NGS-Visitor-Management-System\\src\\backend\\NGS-VMS-Gentec-Server\\genetecconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|c:\\users\\are-giga08\\ngs-visitor-management-system\\src\\backend\\ngs-vms-gentec-server\\genetecconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|solutionrelative:genetecconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|c:\\users\\are-giga08\\ngs-visitor-management-system\\src\\backend\\ngs-vms-gentec-server\\models\\premiselocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|C:\\Users\\ARE-GIGA08\\NGS-Visitor-Management-System\\src\\backend\\NGS-VMS-Gentec-Server\\models\\premiselocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{91B2D9CC-6AB0-430F-BA10-F91E9A8B4B3B}|NGS-VMS-Gentec-Server.csproj|solutionrelative:models\\premiselocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -67,8 +67,7 @@
               "RelativeToolTip": "Models\\PremiseLocation.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-19T01:50:09.015Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-19T01:50:09.015Z"
             },
             {
               "$type": "Document",
@@ -90,7 +89,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\ARE-GIGA08\\NGS-Visitor-Management-System\\src\\backend\\NGS-VMS-Gentec-Server\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAQwEQAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-18T10:59:27.655Z",
               "EditorCaption": ""
@@ -103,7 +102,7 @@
               "RelativeDocumentMoniker": "GenetecConnection.cs",
               "ToolTip": "C:\\Users\\ARE-GIGA08\\NGS-Visitor-Management-System\\src\\backend\\NGS-VMS-Gentec-Server\\GenetecConnection.cs",
               "RelativeToolTip": "GenetecConnection.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBkAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAIA/wBcAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-18T11:03:00.867Z",
               "EditorCaption": ""
