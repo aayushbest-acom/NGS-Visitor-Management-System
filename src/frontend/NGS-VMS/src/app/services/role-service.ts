@@ -46,14 +46,12 @@ export class RoleService {
     this._roles.push(administrator);
   }
   public getRoleIcon(roleType: Actors): string | null {
-    console.log('Actor:', roleType);
     const foundRoles = this._roles.filter((role: Role) => role.roleType === roleType);
     console.log(foundRoles);
     if (foundRoles.length === 0) return null;
     return foundRoles[0].iconSrcs[0];
   }
   public getRoleName(roleType: Actors): string | null {
-    console.log('Actor:', roleType);
     const foundRoles = this._roles.filter((role: Role) => role.roleType === roleType);
     console.log(foundRoles);
     if (foundRoles.length === 0) return null;

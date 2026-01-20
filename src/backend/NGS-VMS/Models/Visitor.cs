@@ -1,8 +1,11 @@
+using NGS_VMS.Models;
+
 namespace NGS_VMS
 {
 
     public class Visitor
     {
+        public Guid Id { set; get; }
         public string Name { set; get; } = null!;
         public string Email { set; get; } = null!;
 
@@ -12,13 +15,13 @@ namespace NGS_VMS
 
         public string? Company { set; get; }
 
-        public Profile HostStaff { set; get; } = null!;
+        public Guid HostStaffId { set; get; }
 
         public string Purpose { set; get; } = null!;
 
         public string? VehicleNumber { set; get; } = null!;
 
-        public string VisitStatus { set; get; } = null!;
+        public VisitStatus VisitStatus { set; get; }
 
         public DateTime? ScheduledAt { set; get; }
 
@@ -26,11 +29,38 @@ namespace NGS_VMS
 
         public DateTime CheckedOutAt { set; get; }
 
-        public Profile ScheduledBy { set; get; } = null!;
+        public Guid? ScheduledById { set; get; }
 
-        public PremiseLocation CurrentLocation { set; get; } = null!;
+        public Guid CurrentLocationId { set; get; }
 
-        public string Access { set; get; } = null!;
+        public Visitor()
+        {
+
+        }
+        public override string ToString()
+        {
+            return $"""
+    Visitor:
+      Id                : {Id}
+      Name              : {Name}
+      Email             : {Email}
+      NationalId        : {NationalId}
+      PhoneNumber       : {PhoneNumber}
+      Company           : {Company ?? "NULL"}
+      Purpose           : {Purpose}
+      VehicleNumber     : {VehicleNumber ?? "NULL"}
+      VisitStatus       : {VisitStatus}
+
+      ScheduledAt       : {(ScheduledAt.HasValue ? ScheduledAt.Value.ToString("O") : "NULL")}
+      CheckedInAt       : {CheckedInAt:O}
+      CheckedOutAt      : {CheckedOutAt:O}
+
+      HostStaffId       : {HostStaffId}
+      ScheduledById     : {(ScheduledById.HasValue ? ScheduledById.Value.ToString() : "NULL")}
+      CurrentLocationId : {CurrentLocationId}
+
+    """;
+        }
 
     }
 }

@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("a4d4a9c4-b045-4000-b622-7fc3a8b50f1f")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("NGS-VMS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e475c89f8e494abb0a2dea1ab1c007938fe5d41")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+22802c1387ba0243f55296523fbd3722c62e6218")]
 [assembly: System.Reflection.AssemblyProductAttribute("NGS-VMS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NGS-VMS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

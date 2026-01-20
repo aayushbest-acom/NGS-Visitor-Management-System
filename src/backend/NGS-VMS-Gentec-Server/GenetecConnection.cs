@@ -27,7 +27,7 @@ namespace NGS_VMS_Gentec_Server
             Engine.LogonStatusChanged += Engine_LogonStatusChanged;
             Engine.LoggedOn += Engine_LoggedOnChanged;
             Engine.LogonFailed += Engine_LogonFailedChanged;
-            Engine.BeginLogOn(serverIPAddr,username,password);
+            //Engine.BeginLogOn(serverIPAddr,username,password);
             IsConnected = Engine.IsConnected;
             if (IsConnected)
             {

@@ -3,19 +3,20 @@ import { VisitStatus } from "./visit-status";
 import { PremiseLocation } from "./premise-location";
 
 export interface Visitor {
+    id: string;
     name: string;
     email: string;
     nationalId: string;
     phoneNumber: string;
     company: string;
-    hostStaff: Profile;
+    hostStaffId: string,
     purpose: string;
     vehicleNumber?: string;
     status: VisitStatus;
     scheduledAt: Date;
     checkedInAt: Date;
     checkedOutAt: Date;
-    scheduledBy?: Profile;
-    currentLocation: PremiseLocation;
+    scheduledById?: string,
+    currentLocationId: string,
     access: string;
 }

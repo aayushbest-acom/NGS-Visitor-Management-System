@@ -10,9 +10,10 @@ import { VisitorRegistration } from './visitor-registration/visitor-registration
 import { SelfCheckIn } from './self-check-in/self-check-in';
 import { Login } from './login/login';
 import { authenticationGuard } from './guards/authentication-guard';
-import { environment } from '../environments/environment.development';
+import { environment } from '../environments/environment';
+import { homeNavigationGuardGuard } from './guards/home-navigation-guard-guard';
 
-export const routes: Routes = [{ path: '', component: Home },
+export const routes: Routes = [{ path: '', component: Home, },
 {
     path: environment.routeSecurityConsoleDashboard, component: SecurityConsoleDashboard, title: 'Security Console Dashboard', canActivate: [authenticationGuard]
 },

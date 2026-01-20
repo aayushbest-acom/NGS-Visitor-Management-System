@@ -35,7 +35,6 @@ export class SecurityOperatorDashboard {
   constructor() {
     this.visitors = signal(new Array<Visitor>());
     this.restrictedAreaVisitors = signal(new Array<Visitor>());
-    this.restrictedAreaVisitors.set(this.visitors().filter((visitor) => visitor.currentLocation.isRestrictedArea));
     this.contractorsList = new Array<any>();
     this.visitorCardIconUri = '/ic-active-visitor.png';
     this.restrictedAreaBackgroundColor = '#f59e0b';

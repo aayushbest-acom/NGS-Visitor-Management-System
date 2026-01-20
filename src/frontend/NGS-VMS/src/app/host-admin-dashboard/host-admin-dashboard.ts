@@ -7,6 +7,7 @@ import { BottomNavigator } from "../bottom-navigator/bottom-navigator";
 import { Visitor } from '@angular/compiler';
 import { NoDataCard } from '../no-data-card/no-data-card';
 import { Logout } from "../logout/logout";
+import { Actors } from '../models/actors';
 
 @Component({
   selector: 'app-host-admin-dashboard',
@@ -15,7 +16,7 @@ import { Logout } from "../logout/logout";
   styleUrl: './host-admin-dashboard.css',
 })
 export class HostAdminDashboard {
-  readonly hostProfile: Profile = { name: 'Dr.Sarah Chen', department: 'Administrator', designation: 'host', email: '' };
+  readonly hostProfile: Profile = { id: crypto.randomUUID(), name: 'Dr.Sarah Chen', department: 'Administrator', designation: 'host', email: '', role: Actors.HOST };
   readonly visitors: WritableSignal<Array<Visitor>>;
   readonly message: string = "No visitor acitivity yet";
   constructor() {

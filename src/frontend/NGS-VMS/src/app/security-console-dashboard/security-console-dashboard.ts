@@ -9,6 +9,7 @@ import { VisitorUtils } from '../utils/visitor-utils';
 import { NoDataCard } from "../no-data-card/no-data-card";
 import { VisitorActivityCard } from '../visitor-activity-card/visitor-activity-card';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Actors } from '../models/actors';
 
 @Component({
   selector: 'app-security-console-dashboard',
@@ -23,7 +24,7 @@ export class SecurityConsoleDashboard {
   readonly noVisitorMessage: string = "No Recent Visitor Activity Yet!";
   readonly router: Router = inject(Router);
   constructor() {
-    this.securityOfficerProfile = signal({ name: 'Officer James Wong', designation: 'Security', department: 'Security Operations', email: 'security@ngs.com.sg' });
+    this.securityOfficerProfile = signal({ id: crypto.randomUUID(), name: 'Officer James Wong', designation: 'Security', department: 'Security Operations', email: 'security@ngs.com.sg', role: Actors.SECURITY_OPERATOR });
     this.visitors = signal(new Array<Visitor>());
   }
   public getCheckedInVisitors(): Array<Visitor> {

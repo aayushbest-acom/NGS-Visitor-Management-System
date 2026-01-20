@@ -3,29 +3,35 @@
         <h1>Register Visitor</h1>
     </header>
 
-    <form (submit)="registerVisitor()">
+    <form [formGroup]="visitorRegistrationForm" (ngSubmit)="registerVisitor()">
 
         <fieldset class="section">
             <legend>Personal Information</legend>
 
             <div class="form-group">
-                <input type="text" placeholder="Full Name *" name="fullName" required />
+                <input type="text" placeholder="Full Name *" name="fullName" formControlName="fullName" required />
             </div>
 
             <div class="form-group">
-                <input type="text" placeholder="ID Number (NRIC / Passport) *" name="nationalId" required />
+                <input type="text" placeholder="ID Number (NRIC / Passport) *" name="nationalId"
+                    formControlName="nationalId" required />
+                <button type="button">
+                    <img alt="scanner icon" src="./ic-scanner.png" />
+                    <span>Scan NRIC/Passport</span>
+                </button>
             </div>
 
             <div class="form-group">
-                <input type="tel" placeholder="Phone Number *" name="phoneNumber" required />
+                <input type="tel" placeholder="Phone Number *" name="phoneNumber" formControlName="phoneNumber"
+                    required />
             </div>
 
             <div class="form-group">
-                <input type="email" placeholder="Email" name="email" />
+                <input type="email" placeholder="Email" name="email" formControlName="email" />
             </div>
 
             <div class="form-group">
-                <input type="text" placeholder="Company" name="company" />
+                <input type="text" placeholder="Company" name="company" formControlName="company" />
             </div>
         </fieldset>
 
@@ -36,23 +42,25 @@
 
             <div class="chip-container">
                 @for (member of hostStaffMembers(); track member.email) {
-                <button type="button" [class.active]="visitorForm.get('hostStaff')?.value === member.name" class="chip"
-                    (click)="selectHost(member.name)">{{member.name}}</button>
+                <button type="button" [class.active]="selectedHost() === member" class="chip"
+                    (click)="selectHost(member)">{{member.name}}</button>
                 } @empty {
                 <p>No Host Staff Found</p>
                 }
             </div>
 
             <div class="form-group">
-                <textarea rows="6" placeholder="Purpose of Visit *" name="visitPurpose" required></textarea>
+                <textarea rows="6" placeholder="Purpose of Visit *" name="visitPurpose" formControlName="purpose"
+                    required></textarea>
             </div>
 
             <div class="form-group">
-                <input type="text" placeholder="Vehicle Number (Optional)" />
+                <input type="text" placeholder="Vehicle Number (Optional)" formControlName="vechicleNumber" />
             </div>
         </fieldset>
 
         <button type="submit" class="submit-btn">Register Visitor</button>
 
     </form>
+    <app-bottom-navigator></app-bottom-navigator>
 </section>

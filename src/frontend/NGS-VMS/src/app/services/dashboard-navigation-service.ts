@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Actors } from '../models/actors';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 
 @Injectable({

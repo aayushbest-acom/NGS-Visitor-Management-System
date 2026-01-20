@@ -5,7 +5,6 @@ import { RoleService } from '../services/role-service';
 import { Actors } from '../models/actors';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { AuthService } from '../services/auth-service';
-import { environment } from '../../environments/environment.development';
 import { DashboardNavigationService } from '../services/dashboard-navigation-service';
 
 @Component({
