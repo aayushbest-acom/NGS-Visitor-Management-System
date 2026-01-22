@@ -9,13 +9,8 @@ using NGS_VMS.Services.PassportReader;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var userId = builder.Configuration["passportReaderUserId"];
 var libPath = Environment.GetEnvironmentVariable("PASSPORT_SDK_LIB_PATH");
-Console.WriteLine("USER_ID=" + userId);
 Console.WriteLine("LIB PATH=" + libPath);
-if (string.IsNullOrWhiteSpace(userId))
-    throw new Exception("PassportSdk:UserId missing");
-
 if (string.IsNullOrWhiteSpace(libPath))
     throw new Exception("PASSPORT_SDK_LIB_PATH missing");
 
