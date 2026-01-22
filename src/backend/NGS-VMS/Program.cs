@@ -5,11 +5,24 @@ using Microsoft.OpenApi;
 using NGS_VMS;
 using NGS_VMS.Data;
 using NGS_VMS.Models;
+using NGS_VMS.Services.PassportReader;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var userId = builder.Configuration["passportReaderUserId"];
+var libPath = Environment.GetEnvironmentVariable("PASSPORT_SDK_LIB_PATH");
+Console.WriteLine("USER_ID=" + userId);
+Console.WriteLine("LIB PATH=" + libPath);
+if (string.IsNullOrWhiteSpace(userId))
+    throw new Exception("PassportSdk:UserId missing");
+
+if (string.IsNullOrWhiteSpace(libPath))
+    throw new Exception("PASSPORT_SDK_LIB_PATH missing");
+
+
 builder.Services.AddDbContext<AppDbContext>(options =>
  options.UseSqlite("Data Source=ngs_vms.db"));
+builder.Services.AddSingleton<PassportReaderService>();
 builder.Services.AddCors((options) =>
 {
     options.AddPolicy("AllowAll",
@@ -150,6 +163,11 @@ app.MapGet("/api/host/{id:guid}", async (Guid id, AppDbContext db) =>
 {
     var host = await db.Profiles.FindAsync(id);
     return host is null ? Results.NotFound() : Results.Ok(host);
+});
+
+app.MapGet("/api/reader/scan", (PassportReaderService service) =>
+{
+    return Results.Ok(service.Scan());
 });
 
 app.UseSwagger();
