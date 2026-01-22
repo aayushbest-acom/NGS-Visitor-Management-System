@@ -27,7 +27,6 @@ export class AuditLog {
     this.auditLogs.update(() => this.auditLogService.getAuditLogs());
   }
   searchLog($event: Event) {
-    console.log(this.searchTerm());
     this.auditLogs.update(() => this.auditLogService.getAuditLogs().filter((auditLog) => {
       return auditLog.actor.name === this.searchTerm() || auditLog.target.name === this.searchTerm()
         || auditLog.kind.toString() === this.searchTerm() || auditLog.target.purpose === this.searchTerm() || auditLog.actions.some((action) => action.includes(this.searchTerm()));

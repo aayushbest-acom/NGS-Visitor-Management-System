@@ -4,7 +4,7 @@
         <header>
             <form>
                 <input name="searchOption" type="search" placeholder="Search by name, NRIC or host ..."
-                    (keyup)="searchVisitor($event)" [(ngModel)]="searchTerm" />
+                    (input)="searchVisitor($event)" [(ngModel)]="searchTerm" />
             </form>
             <div class="btn-group">
                 @for(status of visitStatus();track status){
@@ -17,7 +17,7 @@
         </header>
         <div class="data">
             @for(visitor of visitors();track visitor.nationalId){
-            <app-visitor-card [visitor]="visitor"></app-visitor-card>
+            <app-visitor-card [visitor]="visitor" [hostOrStaffs]="hostOrStaffs()"></app-visitor-card>
             } @empty {
             <app-no-data-card iconSrc="/ic-eye.png" message="No Visitors Found!"></app-no-data-card>
             }

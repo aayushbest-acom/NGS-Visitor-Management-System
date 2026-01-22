@@ -1,22 +1,31 @@
 <div class="container">
     <div class="status">
-        <p>{{visitor()?.status ?? "Pending"}}</p>
+        <p>{{ (visitor()?.visitStatus ?? "PENDING") | titlecase }}</p>
     </div>
+
     <section class="card">
-        <header>
-            <h4>{{visitor()?.name ?? "Full Name"}}</h4>
+        <header class="header">
+            <h4>{{ visitor()?.name ?? "Full Name" }}</h4>
         </header>
+
         <section class="card-details">
-            <p>ID: {{visitor()?.nationalId ?? "ID****"}}</p>
-            <p>Host: {{visitor()?.hostStaff ?? "Mr. Host"}}</p>
-            <p>Purpose: {{visitor()?.purpose ?? "Visit"}}</p>
-            <p>Company: {{visitor()?.company ?? "Example Company"}}</p>
-            <p>Access: {{visitor()?.access ?? "Public"}}</p>
+            <p>ID: {{ (visitor()?.nationalId ?? "****") | mask }}</p>
+            <p>Visit Date / Time In: {{ visitor()?.checkedInAt }}</p>
+            <p>Visit Date / Time Out: {{ visitor()?.checkedOutAt }}</p>
+            <p>Purpose: {{ visitor()?.purpose ?? "Visit" }}</p>
+            <p>HostOrStaff: {{ getHostOrStaffInfo() ?? "N/A" }}</p>
+            <p>Pass Number: {{ visitor()?.passNumber ?? "N/A" }}</p>
+            <p>Company: {{ visitor()?.company ?? "Example Company" }}</p>
+            <p>Access: {{ visitor()?.access ?? "Public" }}</p>
         </section>
-        <footer>
-            @if((visitor()?.status ?? VISITOR_STATUS_PENDING) === VISITOR_STATUS_PENDING){
-            <button><img src="/ic-badge-white.png" alt="Badge Icon" />Issue Badge</button>
-            }
+
+        <footer class="footer">
+            <button class="badge-btn">
+                <img src="/ic-badge-white.png" alt="Badge Icon" />
+                <span>Issue Badge</span>
+            </button>
+
+            <app-connect-to-host [hostOrStaff]="hostOrStaff()" [visitor]="visitor() ?? null"></app-connect-to-host>
         </footer>
     </section>
 </div>

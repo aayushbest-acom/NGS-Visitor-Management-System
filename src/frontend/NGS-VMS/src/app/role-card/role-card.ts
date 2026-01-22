@@ -18,7 +18,6 @@ export class RoleCard {
     this.roles = this.roleService.getRoles();
   }
   public navigateToLoginRole(role: Role) {
-    console.log('navigation role clicked');
     this.router.navigate([role.routeLink], {
       queryParams: {
         roleActor: role.roleType

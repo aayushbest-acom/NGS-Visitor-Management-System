@@ -23,15 +23,13 @@ namespace NGS_VMS
 
         public VisitStatus VisitStatus { set; get; }
 
-        public DateTime? ScheduledAt { set; get; }
-
         public DateTime CheckedInAt { set; get; }
 
         public DateTime CheckedOutAt { set; get; }
 
-        public Guid? ScheduledById { set; get; }
+        public string? PassNumber { set; get; }
 
-        public Guid CurrentLocationId { set; get; }
+        public string? SpecialInstructions { set; get; }
 
         public Visitor()
         {
@@ -51,14 +49,13 @@ namespace NGS_VMS
       VehicleNumber     : {VehicleNumber ?? "NULL"}
       VisitStatus       : {VisitStatus}
 
-      ScheduledAt       : {(ScheduledAt.HasValue ? ScheduledAt.Value.ToString("O") : "NULL")}
       CheckedInAt       : {CheckedInAt:O}
       CheckedOutAt      : {CheckedOutAt:O}
 
       HostStaffId       : {HostStaffId}
-      ScheduledById     : {(ScheduledById.HasValue ? ScheduledById.Value.ToString() : "NULL")}
-      CurrentLocationId : {CurrentLocationId}
 
+      PassNumber:       : {PassNumber}
+      SpecialInstructions: {SpecialInstructions}
     """;
         }
 

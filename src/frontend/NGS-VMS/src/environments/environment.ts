@@ -11,4 +11,7 @@ export const environment = {
     httpBackendVisitorReadPoint: `api/visitor/`,
     httpBackendVisitorUpdateEndPoint: 'api/visitor/update/',
     httpBackendVisitorCreateEndPoint: 'api/visitor/register',
+    httpBackendHostsReadEndPoint: 'api/hosts',
+    httpBackendHostReadEndPoint: 'api/host',
+
 };

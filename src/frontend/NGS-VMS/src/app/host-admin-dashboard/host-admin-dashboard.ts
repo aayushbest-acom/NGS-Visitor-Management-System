@@ -16,7 +16,7 @@ import { Actors } from '../models/actors';
   styleUrl: './host-admin-dashboard.css',
 })
 export class HostAdminDashboard {
-  readonly hostProfile: Profile = { id: crypto.randomUUID(), name: 'Dr.Sarah Chen', department: 'Administrator', designation: 'host', email: '', role: Actors.HOST };
+  readonly hostProfile: Profile = { id: crypto.randomUUID(), name: 'Dr.Sarah Chen', department: 'Administrator', designation: 'host', email: '', role: Actors.HOST, phone: '' };
   readonly visitors: WritableSignal<Array<Visitor>>;
   readonly message: string = "No visitor acitivity yet";
   constructor() {

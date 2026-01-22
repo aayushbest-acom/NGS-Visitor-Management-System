@@ -24,14 +24,14 @@ export class SecurityConsoleDashboard {
   readonly noVisitorMessage: string = "No Recent Visitor Activity Yet!";
   readonly router: Router = inject(Router);
   constructor() {
-    this.securityOfficerProfile = signal({ id: crypto.randomUUID(), name: 'Officer James Wong', designation: 'Security', department: 'Security Operations', email: 'security@ngs.com.sg', role: Actors.SECURITY_OPERATOR });
+    this.securityOfficerProfile = signal({ id: crypto.randomUUID(), name: 'Officer James Wong', designation: 'Security', department: 'Security Operations', email: 'security@ngs.com.sg', role: Actors.SECURITY_OPERATOR, phone: '+65-XXXX-XXXX' });
     this.visitors = signal(new Array<Visitor>());
   }
   public getCheckedInVisitors(): Array<Visitor> {
     return VisitorUtils.getCheckedInVisitors(this.visitors());
   }
   public getTodayScheduledVisitors(): Array<Visitor> {
-    return VisitorUtils.getScheduledVisitors(this.visitors(), new Date());
+    return new Array<Visitor>();
   }
 
   public getPendingForApprovalVisitors(): Array<Visitor> {

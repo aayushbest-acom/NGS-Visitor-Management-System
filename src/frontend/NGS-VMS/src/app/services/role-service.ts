@@ -47,13 +47,11 @@ export class RoleService {
   }
   public getRoleIcon(roleType: Actors): string | null {
     const foundRoles = this._roles.filter((role: Role) => role.roleType === roleType);
-    console.log(foundRoles);
     if (foundRoles.length === 0) return null;
     return foundRoles[0].iconSrcs[0];
   }
   public getRoleName(roleType: Actors): string | null {
     const foundRoles = this._roles.filter((role: Role) => role.roleType === roleType);
-    console.log(foundRoles);
     if (foundRoles.length === 0) return null;
     return foundRoles[0].name;
   }

@@ -6,5 +6,6 @@ export interface Profile {
     designation: string;
     department: string;
     email: string;
+    phone: string;
     role: Actors;
 }

@@ -37,16 +37,30 @@ button {
     background-color: #10b981;
     color: white;
     border-radius: 10px;
-    font-size: medium;
     font-weight: bold;
     text-align: center;
-    padding: 20px;
-    margin-left: 15px;
-
+    cursor: pointer;
+    display: flex;
+    flex-flow: column nowrap;
 }
 
-button img {
-    width: 8%;
-    height: 10%;
-    margin-right: 5px;
+button:hover {
+    opacity: 70%;
+}
+
+
+
+button span {
+    display: block;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.host-content {
+    margin-left: auto;
 }

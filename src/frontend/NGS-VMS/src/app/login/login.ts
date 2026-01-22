@@ -28,10 +28,8 @@ export class Login {
   });
 
   constructor() {
-    console.log("hello login!");
 
     this._activatedRoute.queryParams.subscribe((params) => {
-      console.log('params:', params);
       const actor = Number(params['roleActor']) as Actors;
       this._roleType.update(() => actor);
       this.roleName.update(() => this._rolesService.getRoleName(actor) ?? "");
@@ -41,7 +39,6 @@ export class Login {
   }
 
   public onLogin() {
-    console.log('Form Control Values are: ', this.loginFormGroup.value);
     const loggedIn = this._authService.doLogIn(this._roleType(), this.loginFormGroup.value.username ?? null, this.loginFormGroup.value.password ?? null);
     if (loggedIn) {
       this._dashboardNavigationService.routeNavigationHelper(this._roleType());

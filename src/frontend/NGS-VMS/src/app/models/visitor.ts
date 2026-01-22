@@ -12,11 +12,10 @@ export interface Visitor {
     hostStaffId: string,
     purpose: string;
     vehicleNumber?: string;
-    status: VisitStatus;
-    scheduledAt: Date;
+    visitStatus: VisitStatus;
     checkedInAt: Date;
     checkedOutAt: Date;
-    scheduledById?: string,
-    currentLocationId: string,
     access: string;
+    passNumber?: string;
+    specialInstructions?: string;
 }

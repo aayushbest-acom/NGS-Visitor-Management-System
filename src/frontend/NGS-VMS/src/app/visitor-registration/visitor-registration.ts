@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import { Profile } from '../models/profile';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { VisitorDialog } from '../visitor-dialog/visitor-dialog';
@@ -38,14 +38,16 @@ export class VisitorRegistration {
     designation: '',
     department: '',
     email: '',
-    role: Actors.NONE
+    role: Actors.NONE,
+    phone: '+65-XXXX-XXXX'
   });
   constructor() {
-    this.hostStaffMembers.update(() => this._hostOrStaffService.getHostOrStaffList());
+    effect(() => {
+      this.hostStaffMembers.set(this._hostOrStaffService.getHostOrStaffList());
+    })
   }
   registerVisitor() {
     if (this.visitorRegistrationForm.valid) {
-      console.log(this.selectedHost());
       const formValues = this.visitorRegistrationForm.value;
       const visitor: Visitor = {
         id: crypto.randomUUID(),
@@ -56,15 +58,12 @@ export class VisitorRegistration {
         company: formValues.company ?? "",
         purpose: formValues.purpose ?? "",
         vehicleNumber: formValues.vechicleNumber ?? "",
-        status: VisitStatus.PENDING,
+        visitStatus: VisitStatus.PENDING,
         access: '',
-        scheduledAt: new Date(),
         checkedInAt: new Date(),
         checkedOutAt: new Date(),
         hostStaffId: this.selectedHost()?.id ?? '',
-        currentLocationId: this._premiseLocationService.getDefaultPremiseLocation().id,
       };
-      console.log(visitor);
       this._visitorService.addVisitor(visitor);
       alert("Visitor Registration Happened Successfully!");
       this.visitorRegistrationForm.reset();

@@ -1,10 +1,10 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { Visitor } from '../models/visitor';
 import { VisitStatus } from '../models/visit-status';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Actors } from '../models/actors';
-
+import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -13,7 +13,7 @@ export class VisitorService {
   private _httpClient = inject(HttpClient);
   constructor() {
     if (environment.isDevelopment) {
-      this._visitorsData.update(() => new Array<Visitor>(
+      this._visitorsData.set(new Array<Visitor>(
         {
           id: crypto.randomUUID(),
           name: "John Doe",
@@ -23,13 +23,10 @@ export class VisitorService {
           company: "Acme Corp",
           purpose: "Project discussion",
           vehicleNumber: "ABC-1234",
-          status: VisitStatus.APPROVED,
-          scheduledAt: new Date("2026-01-20T10:00:00"),
+          visitStatus: VisitStatus.APPROVED,
           checkedInAt: new Date("2026-01-20T09:55:00"),
           checkedOutAt: new Date("2026-01-20T11:30:00"),
           access: "Lobby, Meeting Room 2",
-          currentLocationId: crypto.randomUUID(),
-          scheduledById: crypto.randomUUID(),
           hostStaffId: crypto.randomUUID()
         },
         {
@@ -40,13 +37,10 @@ export class VisitorService {
           phoneNumber: "+91-98765-43210",
           company: "Infosys",
           purpose: "Technical interview",
-          status: VisitStatus.SCHEDULED,
-          scheduledAt: new Date("2026-01-22T14:00:00"),
+          visitStatus: VisitStatus.SCHEDULED,
           checkedInAt: new Date("2026-01-22T00:00:00"),
           checkedOutAt: new Date("2026-01-22T00:00:00"),
           access: "Reception, Interview Room",
-          currentLocationId: crypto.randomUUID(),
-          scheduledById: crypto.randomUUID(),
           hostStaffId: crypto.randomUUID()
         },
         {
@@ -58,13 +52,10 @@ export class VisitorService {
           company: "SecureTech",
           purpose: "CCTV maintenance",
           vehicleNumber: "VAN-9087",
-          status: VisitStatus.CHECKED_IN,
-          scheduledAt: new Date("2026-01-21T08:30:00"),
+          visitStatus: VisitStatus.CHECKED_IN,
           checkedInAt: new Date("2026-01-21T08:25:00"),
           checkedOutAt: new Date("2026-01-21T00:00:00"),
           access: "Maintenance Area",
-          currentLocationId: crypto.randomUUID(),
-          scheduledById: crypto.randomUUID(),
           hostStaffId: crypto.randomUUID()
         },
         {
@@ -75,13 +66,10 @@ export class VisitorService {
           phoneNumber: "+82-10-2233-4455",
           company: "Partner Solutions",
           purpose: "Partnership meeting",
-          status: VisitStatus.CHECKED_OUT,
-          scheduledAt: new Date("2026-01-18T15:00:00"),
+          visitStatus: VisitStatus.CHECKED_OUT,
           checkedInAt: new Date("2026-01-18T14:50:00"),
           checkedOutAt: new Date("2026-01-18T16:10:00"),
           access: "Meeting Room 5",
-          currentLocationId: crypto.randomUUID(),
-          scheduledById: crypto.randomUUID(),
           hostStaffId: crypto.randomUUID()
         },
         {
@@ -93,26 +81,27 @@ export class VisitorService {
           company: "FastLogix",
           purpose: "Delivery of hardware equipment",
           vehicleNumber: "TRK-4455",
-          status: VisitStatus.PENDING,
-          scheduledAt: new Date("2026-01-23T09:00:00"),
+          visitStatus: VisitStatus.PENDING,
           checkedInAt: new Date("2026-01-23T00:00:00"),
           checkedOutAt: new Date("2026-01-23T00:00:00"),
           access: "Loading Bay",
-          currentLocationId: crypto.randomUUID(),
-          scheduledById: crypto.randomUUID(),
           hostStaffId: crypto.randomUUID()
         }
       ));
     } else {
-      this._httpClient.get<Array<Visitor>>(environment.httpBackendURI + environment.httpBackendVisitorsReadPoint).subscribe((visitors: Array<Visitor>) => {
-        this._visitorsData.update(() => visitors);
-      });
+      this._reloadVisitors();
     }
+
 
   }
   public getVisitors(): Array<Visitor> {
-    const visitors = structuredClone(this._visitorsData());
-    return visitors;
+
+    if (environment.isDevelopment) {
+      const visitors = structuredClone(this._visitorsData());
+      return visitors;
+    } else {
+      return this._visitorsData();
+    }
   }
 
   public getVisitorsCount(): number {
@@ -124,14 +113,20 @@ export class VisitorService {
       this._visitorsData().push(visitor);
     } else {
       this._httpClient.post<Visitor>(environment.httpBackendURI + environment.httpBackendVisitorCreateEndPoint, visitor).subscribe((response: Visitor) => {
-        console.log('Response ID:', response.id);
-        console.log('Visitor ID:', visitor.id);
+
         if (visitor.id === response.id) {
           console.info('Visitor Added Successfully!');
+          this._reloadVisitors();
+
         } else {
           console.error('Visitor Addition Failed!');
         }
       });
     }
+  }
+  private _reloadVisitors(): void {
+    this._httpClient.get<Array<Visitor>>(environment.httpBackendURI + environment.httpBackendVisitorsReadPoint).subscribe((visitors: Array<Visitor>) => {
+      this._visitorsData.set(visitors);
+    });
   }
 }

@@ -12,19 +12,6 @@ namespace NGS_VMS.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "PremiseLocations",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    IsRestrictedArea = table.Column<bool>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PremiseLocations", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Profiles",
                 columns: table => new
                 {
@@ -32,7 +19,9 @@ namespace NGS_VMS.Migrations
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Designation = table.Column<string>(type: "TEXT", nullable: false),
                     Department = table.Column<string>(type: "TEXT", nullable: false),
-                    Email = table.Column<string>(type: "TEXT", nullable: false)
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
+                    Phone = table.Column<string>(type: "TEXT", nullable: false),
+                    Role = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -53,50 +42,26 @@ namespace NGS_VMS.Migrations
                     Purpose = table.Column<string>(type: "TEXT", nullable: false),
                     VehicleNumber = table.Column<string>(type: "TEXT", nullable: true),
                     VisitStatus = table.Column<int>(type: "INTEGER", nullable: false),
-                    ScheduledAt = table.Column<DateTime>(type: "TEXT", nullable: true),
                     CheckedInAt = table.Column<DateTime>(type: "TEXT", nullable: false),
                     CheckedOutAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    ScheduledById = table.Column<Guid>(type: "TEXT", nullable: false),
-                    CurrentLocationId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Access = table.Column<string>(type: "TEXT", nullable: false)
+                    PassNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    SpecialInstructions = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Visitors", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Visitors_PremiseLocations_CurrentLocationId",
-                        column: x => x.CurrentLocationId,
-                        principalTable: "PremiseLocations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_Visitors_Profiles_HostStaffId",
                         column: x => x.HostStaffId,
                         principalTable: "Profiles",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Visitors_Profiles_ScheduledById",
-                        column: x => x.ScheduledById,
-                        principalTable: "Profiles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Visitors_CurrentLocationId",
-                table: "Visitors",
-                column: "CurrentLocationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Visitors_HostStaffId",
                 table: "Visitors",
                 column: "HostStaffId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Visitors_ScheduledById",
-                table: "Visitors",
-                column: "ScheduledById");
         }
 
         /// <inheritdoc />
@@ -104,9 +69,6 @@ namespace NGS_VMS.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Visitors");
-
-            migrationBuilder.DropTable(
-                name: "PremiseLocations");
 
             migrationBuilder.DropTable(
                 name: "Profiles");

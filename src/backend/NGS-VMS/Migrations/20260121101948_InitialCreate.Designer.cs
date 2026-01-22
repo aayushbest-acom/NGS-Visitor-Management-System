@@ -11,32 +11,14 @@ using NGS_VMS.Data;
 namespace NGS_VMS.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260120050948_RemovedAssociations")]
-    partial class RemovedAssociations
+    [Migration("20260121101948_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0");
-
-            modelBuilder.Entity("NGS_VMS.PremiseLocation", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsRestrictedArea")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PremiseLocations");
-                });
 
             modelBuilder.Entity("NGS_VMS.Profile", b =>
                 {
@@ -60,6 +42,13 @@ namespace NGS_VMS.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.ToTable("Profiles");
@@ -80,9 +69,6 @@ namespace NGS_VMS.Migrations
                     b.Property<string>("Company")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("CurrentLocationId")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -98,6 +84,9 @@ namespace NGS_VMS.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("PassNumber")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -106,10 +95,7 @@ namespace NGS_VMS.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("ScheduledAt")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid?>("ScheduledById")
+                    b.Property<string>("SpecialInstructions")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("VehicleNumber")
@@ -120,33 +106,18 @@ namespace NGS_VMS.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CurrentLocationId");
-
                     b.HasIndex("HostStaffId");
-
-                    b.HasIndex("ScheduledById");
 
                     b.ToTable("Visitors");
                 });
 
             modelBuilder.Entity("NGS_VMS.Visitor", b =>
                 {
-                    b.HasOne("NGS_VMS.PremiseLocation", null)
-                        .WithMany()
-                        .HasForeignKey("CurrentLocationId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("NGS_VMS.Profile", null)
                         .WithMany()
                         .HasForeignKey("HostStaffId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("NGS_VMS.Profile", null)
-                        .WithMany()
-                        .HasForeignKey("ScheduledById")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }
