@@ -10,9 +10,21 @@ using NGS_VMS.Services.PassportReader;
 var builder = WebApplication.CreateBuilder(args);
 
 var libPath = Environment.GetEnvironmentVariable("PASSPORT_SDK_LIB_PATH");
+var userID = "66915733240645123987";
 Console.WriteLine("LIB PATH=" + libPath);
 if (string.IsNullOrWhiteSpace(libPath))
     throw new Exception("PASSPORT_SDK_LIB_PATH missing");
+
+builder.Services.AddSingleton<PassportReaderLoader>(exp =>
+{
+    var loader = new PassportReaderLoader();
+    var loadStatus = loader.Initialize(userID, libPath);
+    if (!loadStatus.status)
+    {
+        throw new Exception(loadStatus.message);
+    }
+    return loader;
+});
 
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -164,6 +176,8 @@ app.MapGet("/api/reader/scan", (PassportReaderService service) =>
 {
     return Results.Ok(service.Scan());
 });
+
+
 
 app.UseSwagger();
 app.UseSwaggerUI();

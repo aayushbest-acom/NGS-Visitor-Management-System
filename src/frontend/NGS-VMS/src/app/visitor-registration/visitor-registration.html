@@ -15,9 +15,9 @@
             <div class="form-group">
                 <input type="text" placeholder="ID Number (NRIC / Passport) *" name="nationalId"
                     formControlName="nationalId" required />
-                <button type="button">
+                <button type="button" (click)="getPassportNumber()">
                     <img alt="scanner icon" src="./ic-scanner.png" />
-                    <span>Scan NRIC/Passport</span>
+                    <span>Scan Passport</span>
                 </button>
             </div>
 

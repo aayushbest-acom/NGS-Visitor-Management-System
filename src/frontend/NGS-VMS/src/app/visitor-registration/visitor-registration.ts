@@ -10,6 +10,8 @@ import { VisitorService } from '../services/visitor-service';
 import { VisitStatus } from '../models/visit-status';
 import { PremiseLocatonService } from '../services/premise-locaton-service';
 import { BottomNavigator } from "../bottom-navigator/bottom-navigator";
+import { PassportReaderService } from '../services/passport-reader-service';
+import { PassportReaderScanResult } from '../models/passport-reader-scan-result';
 @Component({
   selector: 'app-visitor-registration',
   imports: [ReactiveFormsModule, BottomNavigator],
@@ -20,6 +22,7 @@ export class VisitorRegistration {
   private _hostOrStaffService = inject(HostOrStaffService);
   private _visitorService = inject(VisitorService);
   private _premiseLocationService = inject(PremiseLocatonService);
+  private _passportReaderService = inject(PassportReaderService);
   hostStaffMembers = signal(new Array<Profile>());
   visitorRegistrationForm = new FormGroup({
     fullName: new FormControl('', Validators.required),
@@ -75,5 +78,16 @@ export class VisitorRegistration {
   selectHost(host: Profile) {
     this.selectedHost.update(() => host);
     this.visitorRegistrationForm.patchValue({ hostOrStaff: host });
+  }
+  public getPassportNumber(): void {
+    this._passportReaderService.getPassportNumber().subscribe((scanResults: PassportReaderScanResult) => {
+      this.visitorRegistrationForm.controls.nationalId.reset();
+      if (scanResults.success && scanResults.documentType === "PASSPORT") {
+        this.visitorRegistrationForm.controls.nationalId.setValue(scanResults.passportNumber);
+      } else {
+        this.visitorRegistrationForm.controls.nationalId.setValue(scanResults.error);
+      }
+
+    });
   }
 }

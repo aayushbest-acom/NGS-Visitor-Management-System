@@ -1,77 +1,64 @@
-using System;
-using System.Text;
 using NGS_VMS.Models;
 
 namespace NGS_VMS.Services.PassportReader;
 
 public class PassportReaderService
 {
-    private readonly string _userId;
-    private readonly string _libPath;
-    public PassportReaderService(IConfiguration configuration)
+    // private readonly string _userId;
+    //  private readonly string _libPath;
+    private readonly PassportReaderLoader _loader;
+    //  private readonly (bool status, string message) m_PassportReaderConnection;
+    public PassportReaderService(PassportReaderLoader loader)
     {
-        _userId = "0744e088ca453d89bdc6eb2ff732c9b161033baeb37cc56d9f77d8694bd1eb0d05f4cebc33fe3b148820af747e4377bb00f20e536674a66fa7380590ca7792c99e14b055abc74aae687aaf40aff3a1966db4a8e29e1fad4279dec343e78248a43a6a2d5c1ce792ddc59d969b722d6dc81211b36242c7ff707b31bc6a8a3c349541c0eed86da73a2cee520a8daf3803db56d0d4dc3ab2c78117f9956a9beb7fab1bdc9ad1864f6b20975fb31f4e5d8c57a0bbb5576e282bfbb4fdf9ee03d8506e3186da4f4f273043db8c3b5837e430c25a98fedbc6735368b9068e1ea84bd065e988565bb076061c3ca34741521516a6eb3057712ada68db90dcfc01738b2718aca9b5fc9186c033236a82e08837678abb4b661f82319239a047ec9f4ce27c0fe3b0a03bda9da311f6ab913fbf944af732b1d6efb61af8ad510f06011c96f7d3f466be1e7304d73d1e2c1f66e072e874b8294de9ae84c3330bfbf12ec9f0c2eb4993b8b04403833f04b6d25bd41a6989b5da7314522a1a5336d4562e3d3802df48ff35f635e1cfa00f10522881d4f4be9172f2788b5326963a62dc0a5eb6e2385b71defa2fe8e4e7a63248d5d1e8b19cb4d36f1d3f480f83806d2cc916b2887de9b25bc3185eea9c33585c68ab9dc9aa8667950c5752fca36ebded734c731c365a8b5359da8c08481dd535ebf63c647070f6094cbcb7157c6d19bb11e842c7eb15c16ec55bba6772cc437c659c0da977d84776e554bf8498e64b65aad167b025841f550e85302fa2a86ad8df8458c146272382e009b46e7f3f196b46f12a016b0e6cb0313e3587601911f2609665d466c652d544c2dcfeb7e24c83ed2fd2df461b6f265870129735870271f0ba7b095d1b9c1819678159ca35ac54a873a9743d13f16068021088a85a03fe97d8e488b590c9f367dfe9aa40a200aa7ea5f5e8d85fba0677dc758242fadd415ed8e67af58ca00d37145c179f8f12c378aeff639f6592bf8ae689ac89cf58e14ca2cacaa677ea0f90ed24c87166a8b19d740f0c1b8e4133ab08962f07423b876a1fd8564fb86fa07b5288e63d8e8bf8f5e06d0bd3428e0be12ae23344b950dabf35579078b9f769ff2bcf998c6f834188da60314fea43ef3534b6dfc79d5d8353cd91dcaae14a1224604208e57157345f4b31aed3ec2686ad0e5a5b18572b292ed0cc636b982f42f2da295cd0fcd178811929a1b5b2007954a016d0bf4d82755924514c464670a1727fccbcd578b7b6f62e8e8baea2986f2fd3326644e9290fdbb368c0c053d3d8ab3872517d4dd295c770a8938c26b811488d31443092ea9ebc6358e76328218fa5ee64434fe3eabefbc9c1e2d6a52607a6b7a9930baf8bca041e6be8b62b216d6987ebb9d4a3c7d89a201f9f1487abf8513a947a5baad53dbccbe73441c59d1bfeed4ddb92f3308cad5c0bf3cf";
-        _libPath = Environment.GetEnvironmentVariable("PASSPORT_SDK_LIB_PATH") ?? throw new InvalidDataException("Unable to load Passport Lib SDK Path!");
-
+        // _userId = "66915733240645123987";
+        // _libPath = Environment.GetEnvironmentVariable("PASSPORT_SDK_LIB_PATH") ?? throw new InvalidDataException("Unable to load Passport Lib SDK Path!");
+        // _libPath = @"C:\Program Files\Sinosecu\Sinosecu Passport ReaderX64\lib";
+        // _loader = new PassportReaderLoader();
+        //  m_PassportReaderConnection = _loader.LoadKernel(_userId, _libPath);
+        _loader = loader;
+        Scan();
     }
+
     public ReaderScanResult Scan()
     {
         var result = new ReaderScanResult();
-
-        int init = IDCardNative.InitIDCard(_userId, 0, _libPath);
-        if (init != 0)
-            return Fail($"Device initialization failed (code {init})");
-
-        try
+        // Write Code Here
+        // if (m_PassportReaderConnection.status)
+        // {
+        //Console.WriteLine($"Passport Reader Status = {m_PassportReaderConnection.message}");
+        var loaderResult = _loader.AutoDetectDocument();
+        if (loaderResult.cardType == (int)ScanType.PASSPORT)
         {
-            if (IDCardNative.DetectDocument() != 1)
-                return Fail("No document detected");
-
-            int cardType = 0;
-            int mainId = IDCardNative.AutoProcessIDCard(ref cardType);
-
-            if (mainId <= 0)
-                return Fail("Recognition failed");
-
-            if (mainId == 13) // Passport
+            result.DocumentType = nameof(ScanType.PASSPORT);
+            result.Success = true;
+            if (loaderResult.data.ContainsKey(PassportReaderLoader.KEY_PASSPORT_NUMBER))
             {
-                result.PassportNumber = ReadField(1, 1);
-                result.DocumentType = "PASSPORT";
-                result.Success = true;
-                return result;
+                result.PassportNumber = loaderResult.data[PassportReaderLoader.KEY_PASSPORT_NUMBER];
             }
-
-            if (mainId == 2004) // Singapore NRIC
+            else
             {
-                result.Nric = ReadField(1, 6);
-                result.DocumentType = "NRIC";
-                result.Success = true;
-                return result;
+                result.PassportNumber = "Please Try Scanning Your Document Again!";
             }
-
-            return Fail("Unsupported document type");
         }
-        finally
+        else if (loaderResult.cardType == (int)ScanType.NRIC)
         {
-            IDCardNative.FreeIDCard();
+            result.DocumentType = nameof(ScanType.NRIC);
+            result.Success = true;
+            result.Nric = loaderResult.data[PassportReaderLoader.KEY_NRIC];
         }
-    }
-
-    private string ReadField(int attr, int index)
-    {
-        int len = 256;
-        var sb = new StringBuilder(len);
-        int ret = IDCardNative.GetRecogResultEx(attr, index, sb, ref len);
-        return ret == 0 ? sb.ToString() : null;
-    }
-
-    private static ReaderScanResult Fail(string message)
-    {
-        return new ReaderScanResult
+        else
         {
-            Success = false,
-            Error = message
-        };
+            result.Success = false;
+            result.Error = "Error Occured:" + loaderResult.ToString();
+        }
+
+        //}
+        // else
+        // {
+        //     result.Success = false;
+        //     result.Error = m_PassportReaderConnection.message;
+        // }
+        return result;
     }
 
 }

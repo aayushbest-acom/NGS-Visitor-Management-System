@@ -5,23 +5,23 @@ namespace NGS_VMS
 {
     internal static class IDCardNative
     {
-        [DllImport("IDCard.dll", CharSet = CharSet.Unicode)]
-        public static extern int InitIDCard(string userId, int type, string libPath);
+        [DllImport("Kernel32.dll")]
+        public static extern IntPtr LoadLibrary(string path);
 
-        [DllImport("IDCard.dll")]
-        public static extern void FreeIDCard();
+        [DllImport("Kernel32.dll")]
+        public static extern bool FreeLibrary(IntPtr hModule);
 
-        [DllImport("IDCard.dll")]
-        public static extern int DetectDocument();
+        [DllImport("Kernel32.dll")]
+        private static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
 
-        [DllImport("IDCard.dll")]
-        public static extern int AutoProcessIDCard(ref int cardType);
-
-        [DllImport("IDCard.dll", CharSet = CharSet.Unicode)]
-        public static extern int GetRecogResultEx(
-            int attribute,
-            int index,
-            StringBuilder buffer,
-            ref int bufferLen);
+        public static Delegate LoadFunction<T>(IntPtr hModule, string functionName)
+        {
+            IntPtr functionAddress = GetProcAddress(hModule, functionName);
+            if (functionAddress.ToInt64() == 0)
+            {
+                return null;
+            }
+            return Marshal.GetDelegateForFunctionPointer(functionAddress, typeof(T));
+        }
     }
 }
