@@ -5,14 +5,13 @@
         <app-profile-card [profile]="securityOfficerProfile()"></app-profile-card>
         <div class="status-cards">
             <app-status-card iconUri="/ic-people.png" iconDesc="People Standard Icon" message="Today's Visitors"
-                [count]="visitors().length.toString()"></app-status-card>
+                [count]="todaysVisitorCount()"></app-status-card>
             <app-status-card backgroundColor="#10b981" iconUri="/ic-tick.png" iconDesc="Tick Icon" message="Checked In"
-                [count]="getCheckedInVisitors().length.toString()"></app-status-card>
+                [count]="checkedInVisitorCount()"></app-status-card>
             <app-status-card backgroundColor="#f59e0b" iconUri="/ic-clock.png" iconDesc="Clock Icon"
-                message="Pending Approval"
-                [count]="getPendingForApprovalVisitors().length.toString()"></app-status-card>
+                message="Pending Approval" [count]="pendingApprovalVisitorCount()"></app-status-card>
             <app-status-card iconUri="/ic-calendar.png" iconDesc="Calendar Icon" message="Scheduled Today"
-                [count]="getTodayScheduledVisitors().length.toString()"></app-status-card>
+                [count]="scheduledTodayVisitorCount()"></app-status-card>
         </div>
         <div class="console-menu">
             <h2>Security Overview</h2>
